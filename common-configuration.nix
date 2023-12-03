@@ -5,16 +5,11 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "NixFrame"; # Define your hostname.
+  # networking.hostName = "NixFrame"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -97,15 +92,6 @@
     packages = with pkgs; [
       roboto-mono
     ];
-    # fontconfig = {
-    #   enable = true;
-    #   defaultFonts = {
-    #     monospace = ["Roboto Mono 13"];
-    #     sansSerif = ["Roboto 13"];
-    #     serif = ["Roboto Slab 13"];
-    #   };
-    # };
-    # enableDefaultFonts = true;
   };
 
 
@@ -114,10 +100,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  # environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-  ];
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
