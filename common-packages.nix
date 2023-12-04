@@ -1,8 +1,11 @@
 { pkgs }: with pkgs; [
+  gcc
   git
+
   emacs
   cmake
   gnumake
   libtool
-  gcc
+  notmuch
+  mu
 ]
