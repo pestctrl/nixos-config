@@ -10,4 +10,6 @@
   libtool
   notmuch
   mu
+
+  vim
 ]
