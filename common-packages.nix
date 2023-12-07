@@ -2,6 +2,8 @@
   gcc
   git
 
+  htop
+
   emacs
   cmake
   gnumake
