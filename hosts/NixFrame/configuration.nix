@@ -20,6 +20,8 @@ in
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
