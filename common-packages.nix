@@ -1,8 +1,9 @@
 { pkgs }: with pkgs; [
+  nix-index
+
   gcc
   git
-
-  htop
+  ripgrep
 
   emacs
   cmake
@@ -10,6 +11,15 @@
   libtool
   notmuch
   mu
+  keychain
+
+  lsof
+  htop
+  tigervnc
+  xorg.xinit
+  wget
+
+  parsec-bin
 
   vim
 ]

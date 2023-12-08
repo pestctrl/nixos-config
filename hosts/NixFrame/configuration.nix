@@ -21,12 +21,25 @@ in
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
+  # VNC Server
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "startplasma-x11";
+  services.xrdp.openFirewall = true;
+
+  services.syncthing = {
+    enable = true;
+    user = "benson";
+    configDir = "/home/benson/.config/syncthing"; # Folder for Syncthing's settings and keys
+    dataDir = "/home/benson/.config/syncthing/db"; # Folder for Syncthing's database
+  };
+
   hardware.bluetooth.enable = true; # enables support for Bluetooth
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "dvorak";
+    layout = "us,us";
+    xkbVariant = "dvorak,";
+    xkbOptions = "grp:win_space_toggle";
   };
 
   # Configure console keymap
