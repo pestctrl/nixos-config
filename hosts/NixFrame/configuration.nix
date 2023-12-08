@@ -6,6 +6,7 @@ in
 {
   imports =
     [
+      # ./home-git-repos.nix
       ../../common-configuration.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
