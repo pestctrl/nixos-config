@@ -33,6 +33,11 @@ in
     dataDir = "/home/benson/.config/syncthing/db"; # Folder for Syncthing's database
   };
 
+  services.logind = {
+    extraConfig = "HandlePowerKey=suspend";
+    lidSwitch = "suspend";
+  };
+
   hardware.bluetooth.enable = true; # enables support for Bluetooth
 
   # Configure keymap in X11
