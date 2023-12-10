@@ -13,13 +13,19 @@
   mu
   keychain
 
-  lsof
-  htop
+  feh
+  picom
+  dconf
+
   tigervnc
   xorg.xinit
+
   wget
+  lsof
+  htop
 
   parsec-bin
+  discord
 
   vim
 ]
