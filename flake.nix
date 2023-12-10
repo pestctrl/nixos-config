@@ -13,6 +13,11 @@
       modules = [ ./hosts/NixFrame/configuration.nix ];
     };
 
+    nixosConfigurations.NixDawn = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [ ./hosts/NixDawn/configuration.nix ];
+    };
+
     # nixosConfigurations.LenoNix = nixpkgs.lib.nixosSystem {
     #   system = "x86_64-linux";
     #   modules = [ ./hosts/NixFrame/configuration.nix ];
