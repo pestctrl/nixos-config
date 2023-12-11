@@ -14,13 +14,6 @@ in
   networking.hostName = "NixFrame"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # programs.nm-applet.enable = true;
-
-  # programs.dconf.enable = true;
-  # services = {
-  #   dbus.packages = with pkgs; [ dconf ];
-  # };
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -28,16 +21,9 @@ in
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
-  services.picom.enable = true;
-
   # home-manager.users.benson = {
   #   services.network-manager-applet.enable = true;
   # };
-
-  services.xserver.windowManager.exwm = {
-    enable = true;
-    enableDefaultConfig = false;
-  };
 
   # VNC Server
   services.xrdp.enable = true;

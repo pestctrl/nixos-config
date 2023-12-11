@@ -21,6 +21,9 @@ in
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
 
+  programs.nm-applet.enable = true;
+  services.picom.enable = true;
+
   services.xserver.windowManager.exwm = {
     enable = true;
     enableDefaultConfig = false;
