@@ -20,7 +20,11 @@ in
 
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+
+  services.xserver.windowManager.exwm = {
+    enable = true;
+    enableDefaultConfig = false;
+  };
 
   services.syncthing = {
     enable = true;
