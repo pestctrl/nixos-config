@@ -12,6 +12,7 @@
   notmuch
   mu
   keychain
+  ledger
 
   feh
   picom

@@ -61,7 +61,7 @@ in
   services.tailscale.enable = true;
 
   environment.systemPackages = with pkgs; [
-
+    pavucontrol
   ] ++ commonPackages;
 
   # This value determines the NixOS release from which the default
