@@ -13,6 +13,9 @@
   mu
   keychain
   ledger
+  gnupg
+  pinentry-curses
+  isync
 
   feh
   picom
