@@ -17,6 +17,7 @@
   pinentry-curses
   isync
 
+  yt-dlp
   feh
   picom
   dconf
