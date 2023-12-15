@@ -29,6 +29,7 @@
   lsof
   htop
 
+  signal-desktop
   parsec-bin
   discord
 
