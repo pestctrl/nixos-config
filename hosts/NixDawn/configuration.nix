@@ -64,7 +64,26 @@ in
   };
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    ports = [ 2222 ];
+
+    settings = {
+      X11Forwarding = true;
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+    };
+
+    extraConfig = ''
+      ChallengeResponseAuthentication no
+
+      Match Address 192.168.0.0/16,!192.168.1.254
+          X11UseLocalhost yes
+          X11Forwarding yes
+          PasswordAuthentication yes
+          ChallengeResponseAuthentication yes
+    '';
+  };
   services.tailscale.enable = true;
 
   environment.systemPackages = with pkgs; [
