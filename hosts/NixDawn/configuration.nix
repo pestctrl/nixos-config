@@ -39,6 +39,15 @@ in
       enable = true;
       enableDefaultConfig = false;
     };
+
+    xrandrHeads = [
+      { output = "HDMI-1"; primary = false; monitorConfig = "Option \"PreferredMode\" \"2560x2880\""; }
+      { output = "DP-3"; primary = true; }
+    ];
+
+    deviceSection = ''
+      Option "TearFree"
+    '';
   };
 
   programs.nm-applet.enable = true;
