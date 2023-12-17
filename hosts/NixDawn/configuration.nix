@@ -15,19 +15,34 @@ in
       ./hardware-configuration.nix
     ];
   networking.hostName = "NixDawn"; # Define your hostname.
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver = {
+    # Enable the X11 windowing system.
+    enable = true;
+    exportConfiguration = true;
+
+    # Configure keymap in X11
+    layout = "us";
+    xkbVariant = "";
+
+    libinput = {
+      enable = true;
+      touchpad = {
+        naturalScrolling = true;
+      };
+    };
+
+    # Enable the KDE Plasma Desktop Environment.
+    displayManager.sddm.enable = true;
+
+    windowManager.exwm = {
+      enable = true;
+      enableDefaultConfig = false;
+    };
+  };
 
   programs.nm-applet.enable = true;
   services.picom.enable = true;
-
-  services.xserver.windowManager.exwm = {
-    enable = true;
-    enableDefaultConfig = false;
-  };
 
   services.pcscd.enable = true;
   programs.gnupg.agent = {
@@ -49,12 +64,6 @@ in
   users.extraGroups.vboxusers.members = [ "benson" ];
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.benson = {
