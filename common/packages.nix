@@ -16,6 +16,13 @@
   gnupg
   pinentry-curses
   isync
+  tmux
+
+  ninja
+  gdb
+  lldb
+  mold
+  lld
 
   yt-dlp
   feh
