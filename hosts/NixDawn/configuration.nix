@@ -5,12 +5,12 @@
 { config, pkgs, ... }:
 
 let
-  commonPackages = import ../../common-packages.nix { inherit pkgs; };
+  commonPackages = import ../../common/packages.nix { inherit pkgs; };
 in
 {
   imports =
     [
-      ../../common-configuration.nix
+      ../../common/configuration.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
@@ -42,6 +42,11 @@ in
     configDir = "/home/benson/.config/syncthing"; # Folder for Syncthing's settings and keys
     dataDir = "/home/benson/.config/syncthing/db"; # Folder for Syncthing's database
   };
+
+  nix.settings.experimental-features = "nix-command flakes";
+
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "benson" ];
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
 

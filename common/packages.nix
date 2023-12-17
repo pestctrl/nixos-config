@@ -32,6 +32,7 @@
   signal-desktop
   parsec-bin
   discord
+  pcmanfm
 
   vim
 ]

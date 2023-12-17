@@ -1,13 +1,13 @@
 { config, pkgs, ... }:
 
 let
-  commonPackages = import ../../common-packages.nix { inherit pkgs; };
+  commonPackages = import ../../common/packages.nix { inherit pkgs; };
 in
 {
   imports =
     [
       # ./home-git-repos.nix
-      ../../common-configuration.nix
+      ../../common/configuration.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
