@@ -18,6 +18,11 @@
   isync
   tmux
 
+  firefox
+  google-chrome
+  vlc
+  mpv
+
   ninja
   gdb
   lldb
@@ -36,10 +41,16 @@
   lsof
   htop
 
+  qdirstat
   signal-desktop
   parsec-bin
   discord
+
   pcmanfm
+  libsForQt5.dolphin
+  libsForQt5.dolphin-plugins
+  libsForQt5.ffmpegthumbs
+  libsForQt5.kdegraphics-thumbnailers
 
   vim
 ]
