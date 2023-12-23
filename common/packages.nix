@@ -17,6 +17,7 @@
   pinentry-curses
   isync
   tmux
+  sqlite
 
   firefox
   google-chrome
@@ -41,6 +42,7 @@
   lsof
   htop
 
+  beets
   qdirstat
   signal-desktop
   parsec-bin
