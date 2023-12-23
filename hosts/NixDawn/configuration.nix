@@ -40,7 +40,7 @@ in
 
     gnupg.agent = {
       enable = true;
-      pinentryFlavor = "curses";
+      pinentryFlavor = "gtk2";
       enableSSHSupport = true;
     };
   };
