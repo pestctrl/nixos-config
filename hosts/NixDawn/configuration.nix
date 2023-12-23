@@ -11,6 +11,7 @@ in
   imports =
     [
       ../../common/configuration.nix
+      ../../common/lxd-setup.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
