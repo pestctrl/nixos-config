@@ -23,12 +23,17 @@
   google-chrome
   vlc
   mpv
+  obs-studio
 
   ninja
   gdb
   lldb
   mold
   lld
+
+  python311
+  python311Packages.pip
+  nodejs_21
 
   yt-dlp
   feh
