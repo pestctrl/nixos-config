@@ -40,6 +40,10 @@
   picom
   dconf
 
+  # lxd
+  nftables
+  dnsmasq
+
   tigervnc
   xorg.xinit
 
