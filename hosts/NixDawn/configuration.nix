@@ -12,6 +12,7 @@ in
     [
       ../../common/configuration.nix
       ../../common/lxd-setup.nix
+      ../../common/sshd-home.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
@@ -63,26 +64,7 @@ in
     };
 
     # Enable the OpenSSH daemon.
-    openssh = {
-      enable = true;
-      ports = [ 2222 ];
 
-      settings = {
-        X11Forwarding = true;
-        PasswordAuthentication = false;
-        PermitRootLogin = "no";
-      };
-
-      extraConfig = ''
-      ChallengeResponseAuthentication no
-
-      Match Address 192.168.0.0/16,!192.168.1.254
-          X11UseLocalhost yes
-          X11Forwarding yes
-          PasswordAuthentication yes
-          ChallengeResponseAuthentication yes
-    '';
-    };
 
     xserver = {
       # Enable the X11 windowing system.
