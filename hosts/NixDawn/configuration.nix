@@ -61,9 +61,6 @@ in
       dataDir = "/home/benson/.config/syncthing/db"; # Folder for Syncthing's database
     };
 
-    # Enable the OpenSSH daemon.
-
-
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
@@ -80,8 +77,11 @@ in
         };
       };
 
+      displayManager = {
+        defaultSession = "none+exwm";
+        sddm.enable = true;
+      };
       # Enable the KDE Plasma Desktop Environment.
-      displayManager.sddm.enable = true;
       desktopManager.plasma5.enable = true;
 
       xrandrHeads = [
