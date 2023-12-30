@@ -8,6 +8,8 @@ in
     [
       # ./home-git-repos.nix
       ../../common/configuration.nix
+      ../../common/laptop-things.nix
+      ../../common/exwm.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
@@ -21,38 +23,12 @@ in
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
-  # home-manager.users.benson = {
-  #   services.network-manager-applet.enable = true;
-  # };
-
-  # VNC Server
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "startplasma-x11";
-  services.xrdp.openFirewall = true;
-
   services.syncthing = {
     enable = true;
     user = "benson";
     configDir = "/home/benson/.config/syncthing"; # Folder for Syncthing's settings and keys
     dataDir = "/home/benson/.config/syncthing/db"; # Folder for Syncthing's database
   };
-
-  services.logind = {
-    extraConfig = "HandlePowerKey=suspend";
-    lidSwitch = "suspend";
-  };
-
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us,us";
-    xkbVariant = "dvorak,";
-    xkbOptions = "grp:win_space_toggle";
-  };
-
-  # Configure console keymap
-  console.keyMap = "dvorak";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.benson = {
@@ -66,11 +42,8 @@ in
     ];
   };
 
-  fonts.packages = with pkgs; [ roboto-mono ];
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.tailscale.enable = true;
 
   environment.systemPackages = with pkgs; [
 
