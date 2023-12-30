@@ -1,6 +1,11 @@
 { config, lib, pkgs, ...}:
 
 {
+  environment.systemPackages = with pkgs; [
+    nftables
+    dnsmasq
+  ];
+
   # Enable LXD.
   virtualisation.lxd = {
     enable = true;

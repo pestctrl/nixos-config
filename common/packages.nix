@@ -19,6 +19,8 @@
   tmux
   sqlite
 
+  sbcl
+
   firefox
   google-chrome
   vlc
@@ -36,13 +38,7 @@
   nodejs_21
 
   yt-dlp
-  feh
-  picom
   dconf
-
-  # lxd
-  nftables
-  dnsmasq
 
   tigervnc
   xorg.xinit

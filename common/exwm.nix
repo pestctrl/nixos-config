@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    picom
+    feh
+  ];
+
   services.xserver.windowManager.exwm = {
     enable = true;
     enableDefaultConfig = false;
