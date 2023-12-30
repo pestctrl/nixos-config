@@ -102,6 +102,7 @@ in
 
       # Enable the KDE Plasma Desktop Environment.
       displayManager.sddm.enable = true;
+      desktopManager.plasma5.enable = true;
 
       windowManager.exwm = {
         enable = true;
