@@ -42,7 +42,11 @@ in
   };
 
   services = {
-    picom.enable = true;
+    # Having this enabled makes title bars in kde plasma disappear by
+    # default. Only fixed by reloading the theme in system-settings
+    # appearance.
+    #
+    # picom.enable = true;
     pcscd.enable = true;
     tailscale.enable = true;
     gvfs.enable = true;
