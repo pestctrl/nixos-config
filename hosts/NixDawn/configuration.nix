@@ -115,8 +115,8 @@ in
       ];
 
       deviceSection = ''
-      Option "TearFree"
-    '';
+        Option "TearFree"
+      '';
     };
   };
 
