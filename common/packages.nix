@@ -42,6 +42,7 @@
 
   tigervnc
   xorg.xinit
+  sx
 
   wget
   lsof
