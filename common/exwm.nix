@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     picom
     feh
+    networkmanagerapplet
   ];
 
   services.xserver.windowManager.exwm = {
