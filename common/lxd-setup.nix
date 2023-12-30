@@ -43,16 +43,16 @@
   # Firewall commands allowing traffic to go in and out of the bridge interface
   # (and to the guest LXD instance).  Also sets up the actual NAT masquerade rule.
   networking.firewall.extraCommands = ''
-    iptables -A INPUT -i lxdbr0 -m comment --comment "my rule for LXD network lxdbr0" -j ACCEPT
+    iptables -A INPUT -i lxdbr0 -m comment --comment "LXD network lxdbr0" -j ACCEPT
 
     # These three technically aren't needed, since by default the FORWARD and
     # OUTPUT firewalls accept everything everything, but lets keep them in just
     # in case.
-    iptables -A FORWARD -o lxdbr0 -m comment --comment "my rule for LXD network lxdbr0" -j ACCEPT
-    iptables -A FORWARD -i lxdbr0 -m comment --comment "my rule for LXD network lxdbr0" -j ACCEPT
-    iptables -A OUTPUT -o lxdbr0 -m comment --comment "my rule for LXD network lxdbr0" -j ACCEPT
+    iptables -A FORWARD -o lxdbr0 -m comment --comment "LXD network lxdbr0" -j ACCEPT
+    iptables -A FORWARD -i lxdbr0 -m comment --comment "LXD network lxdbr0" -j ACCEPT
+    iptables -A OUTPUT -o lxdbr0 -m comment --comment "LXD network lxdbr0" -j ACCEPT
 
-    iptables -t nat -A POSTROUTING -s 10.130.43.1/24 ! -d 10.130.43.1/24 -m comment --comment "my rule for LXD network lxdbr0" -j MASQUERADE
+    iptables -t nat -A POSTROUTING -s 10.130.43.1/24 ! -d 10.130.43.1/24 -m comment --comment "LXD network lxdbr0" -j MASQUERADE
   '';
 
   # ip forwarding is needed for NAT'ing to work.
