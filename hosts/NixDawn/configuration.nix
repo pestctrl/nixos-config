@@ -13,6 +13,7 @@ in
       ../../common/configuration.nix
       ../../common/lxd-setup.nix
       ../../common/sshd-home.nix
+      ../../common/exwm.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
@@ -37,14 +38,7 @@ in
 
   programs = {
     evince.enable = true;
-    nm-applet.enable = true;
     thunar.enable = true;
-
-    gnupg.agent = {
-      enable = true;
-      pinentryFlavor = "gtk2";
-      enableSSHSupport = true;
-    };
   };
 
   services = {
@@ -86,11 +80,6 @@ in
       displayManager.sddm.enable = true;
       desktopManager.plasma5.enable = true;
 
-      windowManager.exwm = {
-        enable = true;
-        enableDefaultConfig = false;
-      };
-
       xrandrHeads = [
         { output = "HDMI-1"; primary = false; monitorConfig = "Option \"PreferredMode\" \"2560x2880\""; }
         { output = "DP-3"; primary = true; }
@@ -104,23 +93,6 @@ in
 
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "benson" ];
-
-  security.polkit.enable = true;
-  systemd = {
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
-      };
-    };
-  };
 
   environment.systemPackages = with pkgs; [
     pavucontrol
