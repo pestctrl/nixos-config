@@ -20,6 +20,11 @@ in
   networking.hostName = "NixDawn"; # Define your hostname.
   nix.settings.experimental-features = "nix-command flakes";
 
+  fileSystems."/home/benson/workspace" = {
+    device = "/dev/disk/by-uuid/aa640eb6-0655-446a-8a12-5867eeef6638";
+    fsType = "ext4";
+  };
+
   hardware.bluetooth.enable = true; # enables support for Bluetooth
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
