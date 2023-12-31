@@ -53,6 +53,7 @@
   signal-desktop
   parsec-bin
   discord
+  dunst
 
   pcmanfm
   libsForQt5.dolphin
