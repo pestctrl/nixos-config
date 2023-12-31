@@ -18,6 +18,7 @@
   isync
   tmux
   sqlite
+  file
 
   sbcl
 
@@ -54,6 +55,7 @@
   parsec-bin
   discord
   dunst
+  shutter
 
   pcmanfm
   libsForQt5.dolphin
