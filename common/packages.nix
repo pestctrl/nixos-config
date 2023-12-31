@@ -5,7 +5,7 @@
   git
   ripgrep
 
-  emacs
+  unstable.emacs
   cmake
   gnumake
   libtool
