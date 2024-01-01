@@ -56,6 +56,7 @@
   discord
   dunst
   shutter
+  unstable.rustdesk
 
   pcmanfm
   libsForQt5.dolphin

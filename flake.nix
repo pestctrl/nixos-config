@@ -13,7 +13,10 @@
     let
       system = "x86_64-linux";
       unstable-overlay = final: prev: {
-        unstable = unstable.legacyPackages.${prev.system};
+        unstable = import unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
       };
     in {
 
