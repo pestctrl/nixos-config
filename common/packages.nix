@@ -34,8 +34,13 @@
   mold
   lld
 
-  python311
-  python311Packages.pip
+  (python311.withPackages (pythonPackages: with pythonPackages; [
+    pymupdf
+    pip
+    colorama
+    fuzzywuzzy
+    pypdf2
+  ]))
   nodejs_21
 
   yt-dlp
