@@ -62,6 +62,7 @@
   dunst
   shutter
   unstable.rustdesk
+  ocrmypdf
 
   pcmanfm
   libsForQt5.dolphin
