@@ -36,6 +36,14 @@
         ];
       };
 
+      nixosConfigurations.NixAdvantage = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          { nixpkgs.overlays = [ unstable-overlay ]; }
+          ./hosts/NixAdvantage/configuration.nix
+        ];
+      };
+
       # nixosConfigurations.LenoNix = nixpkgs.lib.nixosSystem {
       #   system = "x86_64-linux";
       #   modules = [ ./hosts/NixFrame/configuration.nix ];
