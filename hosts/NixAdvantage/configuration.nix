@@ -15,6 +15,8 @@ in
       ./hardware-configuration.nix
     ];
 
+  boot.loader.grub.useOSProber = true;
+
   networking.hostName = "NixAdvantage"; # Define your hostname.
 
   # Enable the X11 windowing system.
