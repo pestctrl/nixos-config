@@ -61,7 +61,7 @@
   discord
   dunst
   shutter
-  unstable.rustdesk
+  # unstable.rustdesk
   ocrmypdf
 
   pcmanfm

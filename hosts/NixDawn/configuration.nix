@@ -105,6 +105,7 @@ in
 
   environment.systemPackages = with pkgs; [
     pavucontrol
+    unstable.rustdesk
   ] ++ commonPackages;
 
   # This value determines the NixOS release from which the default
