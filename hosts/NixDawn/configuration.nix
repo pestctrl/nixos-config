@@ -18,7 +18,6 @@ in
       ./hardware-configuration.nix
     ];
   networking.hostName = "NixDawn"; # Define your hostname.
-  nix.settings.experimental-features = "nix-command flakes";
 
   fileSystems."/home/benson/workspace" = {
     device = "/dev/disk/by-uuid/aa640eb6-0655-446a-8a12-5867eeef6638";
