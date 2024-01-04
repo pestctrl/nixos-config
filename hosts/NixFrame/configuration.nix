@@ -18,6 +18,10 @@ in
 
   my.bash-config.enable = true;
 
+  home-manager.users.benson = { ... }: {
+    home.stateVersion = "23.11";
+  };
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 

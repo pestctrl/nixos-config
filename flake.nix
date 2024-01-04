@@ -3,13 +3,13 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
   };
 
-  outputs = { self, nixpkgs, unstable, ... }:
+  outputs = { self, nixpkgs, unstable, home-manager, ... }:
     let
       system = "x86_64-linux";
       unstable-overlay = final: prev: {
@@ -23,6 +23,7 @@
       nixosConfigurations.NixFrame = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+          home-manager.nixosModule
           { nixpkgs.overlays = [ unstable-overlay ]; }
           ./hosts/NixFrame/configuration.nix
         ];
