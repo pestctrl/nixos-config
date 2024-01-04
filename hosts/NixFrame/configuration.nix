@@ -16,6 +16,8 @@ in
   networking.hostName = "NixFrame"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
+  my.bash-config.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
