@@ -1,9 +1,18 @@
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 let
   cfg = config.my.bash-config;
+
+  bash-drv = pkgs.stdenv.mkDerivation {
+    name = "bash-config";
+    src = inputs.bashcfg-input;
+    phases = [ "unpackPhase" "installPhase" ];
+    installPhase = ''
+      mkdir -p $out
+      cp $src/* $out
+    '';
+  };
 in
 {
-
   options.my.bash-config.enable = lib.mkEnableOption "Enable bash configuration file";
 
   config = lib.mkIf cfg.enable {
@@ -11,9 +20,9 @@ in
     home-manager.users.benson = { ... }: {
       # Why can't I do the following?
       # home.file."${config.xdg.configHome}/bash-config/emacs.sh"
-      xdg.configFile."bash-config/emacs.sh".source = ./emacs.sh;
+      xdg.configFile."bash-config/emacs.sh".source = "${bash-drv}/emacs.sh";
 
-      home.file.".bashrc".source = ./bashrc.sh;
+      home.file.".bashrc".source = "${bash-drv}/bashrc.sh";
     };
   };
 }

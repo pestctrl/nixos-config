@@ -6,10 +6,14 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    bashcfg-input = {
+      url = "github:pestctrl/bash-config/master";
+      flake = false;
+    };
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
   };
 
-  outputs = { self, nixpkgs, unstable, home-manager, ... }:
+  outputs = { self, nixpkgs, unstable, home-manager, bashcfg-input, ... }@inputs:
     let
       system = "x86_64-linux";
       unstable-overlay = final: prev: {
@@ -18,10 +22,14 @@
           config.allowUnfree = true;
         };
       };
+      # Perhaps this could've been presented as an overlay?
+      # bashcfg-overlay = final: prev: {
+      # };
     in {
 
       nixosConfigurations.NixFrame = nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs; };
         modules = [
           home-manager.nixosModule
           { nixpkgs.overlays = [ unstable-overlay ]; }
