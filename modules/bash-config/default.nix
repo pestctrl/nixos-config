@@ -5,10 +5,10 @@ let
   bash-drv = pkgs.stdenv.mkDerivation {
     name = "bash-config";
     src = inputs.bashcfg-input;
-    phases = [ "unpackPhase" "installPhase" ];
+    dontBuild = true;
     installPhase = ''
       mkdir -p $out
-      cp $src/* $out
+      cp *.sh $out
     '';
   };
 in
