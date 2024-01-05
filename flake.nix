@@ -40,6 +40,7 @@
       nixosConfigurations.NixDawn = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+          home-manager.nixosModule
           { nixpkgs.overlays = [ unstable-overlay ]; }
           ./hosts/NixDawn/configuration.nix
         ];
@@ -48,6 +49,7 @@
       nixosConfigurations.NixAdvantage = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+          home-manager.nixosModule
           { nixpkgs.overlays = [ unstable-overlay ]; }
           ./hosts/NixAdvantage/configuration.nix
         ];
