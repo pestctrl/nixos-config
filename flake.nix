@@ -13,7 +13,7 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
   };
 
-  outputs = { self, nixpkgs, unstable, home-manager, bashcfg-input, ... }@inputs:
+  outputs = { self, nixpkgs, unstable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       unstable-overlay = final: prev: {
@@ -40,6 +40,7 @@
 
         NixDawn = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit inputs };
           modules = [
             home-manager.nixosModule
             { nixpkgs.overlays = [ unstable-overlay ]; }
@@ -49,6 +50,7 @@
 
         NixAdvantage = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit inputs };
           modules = [
             home-manager.nixosModule
             { nixpkgs.overlays = [ unstable-overlay ]; }

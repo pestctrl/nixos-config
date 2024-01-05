@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports = [
@@ -70,6 +70,13 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      benson = import ../home/home.nix;
+    }
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
