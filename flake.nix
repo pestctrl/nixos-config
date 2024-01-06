@@ -16,6 +16,7 @@
   outputs = { self, nixpkgs, unstable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
       unstable-overlay = final: prev: {
         unstable = import unstable {
           inherit system;
@@ -63,5 +64,11 @@
       #   system = "x86_64-linux";
       #   modules = [ ./hosts/NixFrame/configuration.nix ];
       # };
+
+      homeConfigurations."benson" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        specialArgs = { inherit inputs };
+        modules = [ ./home/home.nix ];
+      };
     };
 }

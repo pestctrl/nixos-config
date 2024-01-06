@@ -16,8 +16,6 @@ in
   networking.hostName = "NixFrame"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  my.bash-config.enable = true;
-
   home-manager.users.benson = { ... }: {
     home.stateVersion = "23.11";
   };

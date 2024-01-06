@@ -1,10 +1,15 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./modules/
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "benson";
   home.homeDirectory = "/home/benson";
+
+  my.bash-config.enable = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
