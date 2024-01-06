@@ -27,32 +27,34 @@
       # };
     in {
 
-      nixosConfigurations.NixFrame = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          home-manager.nixosModule
-          { nixpkgs.overlays = [ unstable-overlay ]; }
-          ./hosts/NixFrame/configuration.nix
-        ];
-      };
+      nixosConfigurations = {
+        NixFrame = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            home-manager.nixosModule
+            { nixpkgs.overlays = [ unstable-overlay ]; }
+            ./hosts/NixFrame/configuration.nix
+          ];
+        };
 
-      nixosConfigurations.NixDawn = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          home-manager.nixosModule
-          { nixpkgs.overlays = [ unstable-overlay ]; }
-          ./hosts/NixDawn/configuration.nix
-        ];
-      };
+        NixDawn = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            home-manager.nixosModule
+            { nixpkgs.overlays = [ unstable-overlay ]; }
+            ./hosts/NixDawn/configuration.nix
+          ];
+        };
 
-      nixosConfigurations.NixAdvantage = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          home-manager.nixosModule
-          { nixpkgs.overlays = [ unstable-overlay ]; }
-          ./hosts/NixAdvantage/configuration.nix
-        ];
+        NixAdvantage = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            home-manager.nixosModule
+            { nixpkgs.overlays = [ unstable-overlay ]; }
+            ./hosts/NixAdvantage/configuration.nix
+          ];
+        };
       };
 
       # nixosConfigurations.LenoNix = nixpkgs.lib.nixosSystem {
