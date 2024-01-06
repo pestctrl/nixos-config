@@ -2,6 +2,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    emacs-overlay.url = "github:nix-community/emacs-overlay/master";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -10,7 +12,6 @@
       url = "github:pestctrl/bash-config/master";
       flake = false;
     };
-    emacs-overlay.url = "github:nix-community/emacs-overlay/master";
   };
 
   outputs = { self, nixpkgs, unstable, home-manager, ... }@inputs:
@@ -41,7 +42,7 @@
 
         NixDawn = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs };
+          specialArgs = { inherit inputs; };
           modules = [
             home-manager.nixosModule
             { nixpkgs.overlays = [ unstable-overlay ]; }
@@ -51,7 +52,7 @@
 
         NixAdvantage = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs };
+          specialArgs = { inherit inputs; };
           modules = [
             home-manager.nixosModule
             { nixpkgs.overlays = [ unstable-overlay ]; }
@@ -67,8 +68,10 @@
 
       homeConfigurations."benson" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        specialArgs = { inherit inputs };
-        modules = [ ./home/home.nix ];
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          ./home/home.nix
+        ];
       };
     };
 }
