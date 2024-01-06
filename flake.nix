@@ -32,11 +32,11 @@
       nixosConfigurations = {
         NixFrame = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          # specialArgs = { inherit inputs; };
           modules = [
             { nixpkgs.overlays = [ unstable-overlay ]; }
             ./hosts/NixFrame/configuration.nix
-            home-manager.nixosModules.home-manager
+            home-manager.nixosModule.home-manager
             {
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.useGlobalPkgs = true;
@@ -48,11 +48,19 @@
 
         NixDawn = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          # specialArgs = { inherit inputs; };
           modules = [
-            home-manager.nixosModule
             { nixpkgs.overlays = [ unstable-overlay ]; }
             ./hosts/NixDawn/configuration.nix
+            home-manager.nixosModule
+            {
+              home-manager = {
+                extraSpecialArgs = { inherit inputs; };
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.benson.imports = [ ./home/home.nix ];
+              };
+            }
           ];
         };
 
@@ -60,7 +68,6 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            home-manager.nixosModule
             { nixpkgs.overlays = [ unstable-overlay ]; }
             ./hosts/NixAdvantage/configuration.nix
           ];
