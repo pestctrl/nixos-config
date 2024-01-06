@@ -34,7 +34,6 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            home-manager.nixosModule
             { nixpkgs.overlays = [ unstable-overlay ]; }
             ./hosts/NixFrame/configuration.nix
           ];
