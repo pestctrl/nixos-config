@@ -94,7 +94,7 @@
   services = {
     mbsync = {
       enable = true;
-      # frequency = "*:0/10";
+      frequency = "*:0/10";
       verbose = true;
     };
   };
