@@ -10,7 +10,7 @@ in
   imports =
     [
       ../../common/configuration.nix
-      ../../common/sshd-home.nix
+      ../../common/moms-house
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];

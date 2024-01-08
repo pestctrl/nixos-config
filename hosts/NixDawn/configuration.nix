@@ -12,7 +12,7 @@ in
     [
       ../../common/configuration.nix
       ../../common/lxd-setup.nix
-      ../../common/sshd-home.nix
+      ../../common/moms-house
       ../../common/exwm.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
