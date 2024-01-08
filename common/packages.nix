@@ -33,6 +33,8 @@
   lldb
   mold
   lld
+  clang-tools_16 # clangd, clang-format
+  llvmPackages_16.libllvm
 
   (python311.withPackages (pythonPackages: with pythonPackages; [
     pymupdf
