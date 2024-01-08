@@ -73,9 +73,29 @@
   #  /etc/profiles/per-user/benson/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "emacsclient";
   };
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+    git = {
+      enable = true;
+      userName = "Benson Chu";
+      userEmail = "bensonchu457@gmail.com";
+      extraConfig = {
+        core = {
+          editor = "emacsclient";
+        };
+      };
+    };
+  };
+
+  services = {
+    mbsync = {
+      enable = true;
+      # frequency = "*:0/10";
+      verbose = true;
+    };
+  };
 }
