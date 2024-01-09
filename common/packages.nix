@@ -55,6 +55,7 @@
 
   wget
   lsof
+  pciutils # lspci
   htop
 
   beets
@@ -62,6 +63,7 @@
   signal-desktop
   parsec-bin
   discord
+  telegram-desktop
   dunst
   shutter
   # unstable.rustdesk
