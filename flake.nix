@@ -36,7 +36,7 @@
           modules = [
             { nixpkgs.overlays = [ unstable-overlay ]; }
             ./hosts/NixFrame/configuration.nix
-            home-manager.nixosModule.home-manager
+            home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.useGlobalPkgs = true;
