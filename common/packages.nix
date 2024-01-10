@@ -28,6 +28,7 @@
   vlc
   mpv
   obs-studio
+  gparted
 
   ninja
   gdb
