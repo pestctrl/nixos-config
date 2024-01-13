@@ -29,6 +29,7 @@
   mpv
   obs-studio
   gparted
+  audacity
 
   ninja
   gdb
