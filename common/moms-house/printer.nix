@@ -4,13 +4,18 @@
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    drivers = with pkgs; [ brlaser brgenml1lpr brgenml1cupswrapper ];
+    drivers = with pkgs; [
+      cups-brother-mfcl2750dw
+      brlaser
+      brgenml1lpr
+      brgenml1cupswrapper
+    ];
   };
 
   # Enable auto-discovery of printers
-  # services.avahi = {
-  #   enable = true;
-  #   nssmdns = true;
-  #   openFirewall = true;
-  # };
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
 }
