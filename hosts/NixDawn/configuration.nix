@@ -74,6 +74,7 @@ in
       # Enable the X11 windowing system.
       enable = true;
       exportConfiguration = true;
+      videoDrivers = [ "amdgpu" ];
 
       # Configure keymap in X11
       layout = "us";
