@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   services.openssh = {
@@ -20,5 +20,11 @@
           PasswordAuthentication yes
           ChallengeResponseAuthentication yes
     '';
+  };
+
+  security.pam.services.sshd = {
+    startSession = true;
+    showMotd = true;
+    unixAuth = lib.mkForce true;
   };
 }
