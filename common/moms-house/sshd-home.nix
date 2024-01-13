@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, options, ... }:
 
 {
   services.openssh = {
@@ -9,10 +9,7 @@
       X11Forwarding = true;
       PasswordAuthentication = false;
       PermitRootLogin = "no";
-      Macs = [
-        "hmac-sha2-512-etm@openssh.com"
-        "hmac-sha2-256-etm@openssh.com"
-        "umac-128-etm@openssh.com"
+      Macs = (options.services.openssh.settings.type.getSubOptions []).Macs.default ++ [
         "hmac-sha2-512"
         "hmac-sha2-256"
       ];
