@@ -111,7 +111,10 @@ in
   environment.systemPackages = with pkgs; [
     pavucontrol
     unstable.rustdesk
+    gkraken
   ] ++ commonPackages;
+
+  hardware.gkraken.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
