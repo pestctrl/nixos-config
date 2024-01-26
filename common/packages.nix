@@ -61,6 +61,7 @@
   htop
   bind
   nmap
+  lm_sensors
 
   beets
   qdirstat
