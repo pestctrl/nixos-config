@@ -25,6 +25,7 @@
 
   firefox
   google-chrome
+  lynx
   vlc
   mpv
   obs-studio
