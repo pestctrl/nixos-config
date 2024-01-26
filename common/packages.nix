@@ -59,6 +59,8 @@
   lsof
   pciutils # lspci
   htop
+  bind
+  nmap
 
   beets
   qdirstat
