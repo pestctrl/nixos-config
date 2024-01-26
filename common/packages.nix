@@ -70,6 +70,8 @@
   shutter
   # unstable.rustdesk
   ocrmypdf
+  mailutils
+  # sendmail
 
   pcmanfm
   libsForQt5.dolphin
