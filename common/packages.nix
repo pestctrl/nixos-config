@@ -46,6 +46,8 @@
     colorama
     fuzzywuzzy
     pypdf2
+    pycryptodome
+    pyacoustid
   ]))
   nodejs_21
 
