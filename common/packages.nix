@@ -67,6 +67,7 @@
   lm_sensors
 
   beets
+  chromaprint
   qdirstat
   signal-desktop
   parsec-bin
@@ -84,6 +85,8 @@
   libsForQt5.dolphin-plugins
   libsForQt5.ffmpegthumbs
   libsForQt5.kdegraphics-thumbnailers
+
+  pavucontrol
 
   vim
 ]
