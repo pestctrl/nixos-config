@@ -48,6 +48,8 @@
     pypdf2
     pycryptodome
     pyacoustid
+    beets
+    # chromaprint
   ]))
   nodejs_21
 
