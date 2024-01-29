@@ -67,8 +67,16 @@
   bind
   nmap
   lm_sensors
+  parallel
 
-  beets
+  (beets.override {
+    pluginOverrides = {
+      extrafiles = {
+        enable = true;
+        propagatedBuildInputs = [ beetsPackages.extrafiles ];
+      };
+    };
+  })
   chromaprint
   qdirstat
   signal-desktop
