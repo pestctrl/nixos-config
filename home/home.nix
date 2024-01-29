@@ -92,6 +92,7 @@
   };
 
   services = {
+    kdeconnect.enable = true;
     mbsync = {
       enable = true;
       frequency = "*:0/10";
