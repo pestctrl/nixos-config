@@ -89,6 +89,13 @@
         };
       };
     };
+
+    emacs = {
+      enable = true;
+      extraPackages = epkgs: with epkgs; [
+        mu4e
+      ];
+    };
   };
 
   services = {
