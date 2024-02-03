@@ -68,6 +68,7 @@
   nmap
   lm_sensors
   parallel
+  wol
 
   (beets.override {
     pluginOverrides = {
