@@ -63,6 +63,8 @@
   wget
   lsof
   pciutils # lspci
+  usbutils # lsusb
+  apcupsd
   htop
   bind
   nmap
