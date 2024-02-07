@@ -23,8 +23,8 @@
 
   sbcl
 
-  firefox
-  google-chrome
+  unstable.firefox
+  unstable.google-chrome
   lynx
   vlc
   mpv
@@ -82,10 +82,10 @@
   })
   chromaprint
   qdirstat
-  signal-desktop
+  unstable.signal-desktop
   parsec-bin
-  discord
-  telegram-desktop
+  unstable.discord
+  unstable.telegram-desktop
   dunst
   shutter
   # unstable.rustdesk
