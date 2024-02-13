@@ -71,6 +71,7 @@
   lm_sensors
   parallel
   wol
+  iperf
 
   (beets.override {
     pluginOverrides = {
