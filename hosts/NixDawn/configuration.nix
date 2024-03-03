@@ -137,6 +137,10 @@ in
     allowedUDPPortRanges = [
       { from = 1714; to = 1764; } # KDE Connect
     ];
+
+    # Syncthing
+    allowedTCPPorts = [ 22000 ];
+    allowedUDPPorts = [ 22000 21027 ];
   };
 
   # This value determines the NixOS release from which the default
