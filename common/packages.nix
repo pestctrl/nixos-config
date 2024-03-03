@@ -100,6 +100,8 @@
   libsForQt5.ffmpegthumbs
   libsForQt5.kdegraphics-thumbnailers
 
+  nfs-utils
+
   pavucontrol
 
   vim
