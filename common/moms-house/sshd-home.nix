@@ -23,6 +23,12 @@
           X11Forwarding yes
           PasswordAuthentication yes
           ChallengeResponseAuthentication yes
+
+      Match Address 192.168.0.0/24,!192.168.0.1
+          X11UseLocalhost yes
+          X11Forwarding yes
+          PasswordAuthentication yes
+          ChallengeResponseAuthentication yes
     '';
   };
 

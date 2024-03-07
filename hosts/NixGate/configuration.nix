@@ -6,7 +6,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      ../../common/moms-house
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -15,7 +17,7 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "NixGate"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -93,5 +95,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
