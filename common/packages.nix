@@ -101,6 +101,7 @@
   libsForQt5.kdegraphics-thumbnailers
 
   nfs-utils
+  git-lfs
 
   pavucontrol
 
