@@ -67,6 +67,15 @@
           ];
         };
 
+        NixGate = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            { nixpkgs.overlays = [ unstable-overlay ]; }
+            ./hosts/NixGate/configuration.nix
+          ];
+        };
+
         NixAdvantage = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
