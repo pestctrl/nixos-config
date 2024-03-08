@@ -102,6 +102,7 @@
 
   nfs-utils
   git-lfs
+  openvpn
 
   pavucontrol
 
