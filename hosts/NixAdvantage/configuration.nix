@@ -4,13 +4,16 @@
 
 { config, pkgs, ... }:
 {
-  imports =
-    [
-      ../../common/configuration.nix
-      ../../common/moms-house
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ../../common/configuration.nix
+    ../../common/moms-house
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   boot.loader.grub.useOSProber = true;
 
