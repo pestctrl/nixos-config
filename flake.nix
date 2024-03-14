@@ -76,20 +76,11 @@
           ];
         };
 
-        NixAdvantage = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            { nixpkgs.overlays = [ unstable-overlay ]; }
-            ./hosts/NixAdvantage/configuration.nix
-          ];
-        };
+        # nixosConfigurations.LenoNix = nixpkgs.lib.nixosSystem {
+        #   system = "x86_64-linux";
+        #   modules = [ ./hosts/NixFrame/configuration.nix ];
+        # };
       };
-
-      # nixosConfigurations.LenoNix = nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   modules = [ ./hosts/NixFrame/configuration.nix ];
-      # };
 
       homeConfigurations."benson" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
