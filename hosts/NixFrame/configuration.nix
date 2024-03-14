@@ -3,7 +3,6 @@
   imports = [
     # ./home-git-repos.nix
     ../../common/configuration.nix
-    ../../common/user-facing.nix
     ../../common/development-machine.nix
     ../../common/laptop-things.nix
     ../../common/exwm.nix
@@ -17,13 +16,6 @@
 
   networking.hostName = "NixFrame"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
 
   services.syncthing = {
     enable = true;

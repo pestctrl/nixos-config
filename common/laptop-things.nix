@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
+  imports = [
+    ./user-facing.nix
+  ];
+
   services.logind = {
     extraConfig = "HandlePowerKey=suspend";
     lidSwitch = "suspend";
@@ -10,8 +14,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us,us";
-    xkbVariant = "dvorak,";
+    layout = lib.mkForce "us,us";
+    xkbVariant = lib.mkForce "dvorak,";
     xkbOptions = "grp:win_space_toggle";
   };
 
