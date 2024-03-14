@@ -1,13 +1,11 @@
 { config, pkgs, ... }:
-
-let
-  commonPackages = import ../../common/packages.nix { inherit pkgs; };
-in
 {
   imports =
     [
       # ./home-git-repos.nix
       ../../common/configuration.nix
+      ../../common/user-facing.nix
+      ../../common/development-machine.nix
       ../../common/laptop-things.nix
       ../../common/exwm.nix
       # Include the results of the hardware scan.
@@ -47,7 +45,7 @@ in
 
   environment.systemPackages = with pkgs; [
 
-  ] ++ commonPackages;
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

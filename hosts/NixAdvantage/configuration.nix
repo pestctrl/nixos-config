@@ -3,9 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-let
-  commonPackages = import ../../common/packages.nix { inherit pkgs; };
-in
 {
   imports =
     [
@@ -51,7 +48,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 
-  ] ++ commonPackages;
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

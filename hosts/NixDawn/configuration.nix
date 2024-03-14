@@ -3,10 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
-let
-  commonPackages = import ../../common/packages.nix { inherit pkgs; };
-in
 {
   imports =
     [
@@ -125,7 +121,7 @@ in
     pavucontrol
     unstable.rustdesk
     gkraken
-  ] ++ commonPackages;
+  ];
 
   hardware.gkraken.enable = true;
 
