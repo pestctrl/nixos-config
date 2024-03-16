@@ -1,6 +1,7 @@
 { pkgs }: with pkgs; [
   nix-index
   home-manager
+  nil
 
   gcc
   git
