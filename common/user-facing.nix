@@ -56,6 +56,7 @@
   environment.systemPackages = with pkgs; [
     unstable.firefox
     unstable.google-chrome
+    bitwarden
     vlc
     mpv
     obs-studio
