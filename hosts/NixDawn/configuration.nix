@@ -6,6 +6,7 @@
 {
   imports = [
     ../../common/configuration.nix
+    ../../common/user-facing.nix
     ../../common/lxd-setup.nix
     ../../common/moms-house
     ../../common/exwm.nix
@@ -85,27 +86,9 @@
 
     xserver = {
       # Enable the X11 windowing system.
-      enable = true;
-      exportConfiguration = true;
       videoDrivers = [ "amdgpu" ];
 
-      # Configure keymap in X11
-      layout = "us";
-      xkbVariant = "";
-
-      libinput = {
-        enable = true;
-        touchpad = {
-          naturalScrolling = true;
-        };
-      };
-
-      displayManager = {
-        defaultSession = "none+exwm";
-        sddm.enable = true;
-      };
-      # Enable the KDE Plasma Desktop Environment.
-      desktopManager.plasma5.enable = true;
+      exportConfiguration = true;
 
       xrandrHeads = [
         { output = "HDMI-1"; primary = false; monitorConfig = "Option \"PreferredMode\" \"2560x2880\""; }
