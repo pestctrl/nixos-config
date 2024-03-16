@@ -38,6 +38,7 @@
   usbutils # lsusb
   lm_sensors
   parallel
+  mtr
 
   (python311.withPackages (pythonPackages: with pythonPackages; [
     pymupdf
