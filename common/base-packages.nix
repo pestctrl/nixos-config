@@ -50,6 +50,7 @@
     pycryptodome
     pyacoustid
     beets
+    clint
     # chromaprint
   ]))
 
