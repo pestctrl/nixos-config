@@ -65,6 +65,13 @@
     devmon.enable = true;
     tumbler.enable = true;
 
+    logind = {
+      extraConfig = ''
+        IdleAction=hybrid-sleep
+        IdleActionSec=30min
+      '';
+    };
+
     apcupsd = {
       enable = true;
 
