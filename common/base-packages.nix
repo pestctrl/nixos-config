@@ -11,6 +11,7 @@
   tailscale
   openvpn
 
+  samba
   nfs-utils
 
   unstable.emacs
