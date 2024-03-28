@@ -32,6 +32,7 @@
   wget
   htop
   bind
+  traceroute
   nmap
   wol
   iperf
