@@ -24,6 +24,22 @@
     dataDir = "/home/benson/.config/syncthing/db"; # Folder for Syncthing's database
   };
 
+  services.fwupd.enable = true;
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPortRanges = [
+      { from = 1714; to = 1764; } # KDE Connect
+    ];
+    allowedUDPPortRanges = [
+      { from = 1714; to = 1764; } # KDE Connect
+    ];
+
+    # Syncthing
+    allowedTCPPorts = [ 22000 ];
+    allowedUDPPorts = [ 22000 21027 ];
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.benson = {
     isNormalUser = true;
