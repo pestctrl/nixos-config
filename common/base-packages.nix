@@ -12,6 +12,7 @@
   openvpn
 
   samba
+  cifs-utils
   nfs-utils
 
   unstable.emacs
