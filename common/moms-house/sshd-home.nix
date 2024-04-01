@@ -18,13 +18,7 @@
     extraConfig = ''
       ChallengeResponseAuthentication no
 
-      Match Address 192.168.1.0/24,!192.168.1.254
-          X11UseLocalhost yes
-          X11Forwarding yes
-          PasswordAuthentication yes
-          ChallengeResponseAuthentication yes
-
-      Match Address 192.168.0.0/24,!192.168.0.1
+      Match Address 10.0.0.0/8,!10.0.0.1
           X11UseLocalhost yes
           X11Forwarding yes
           PasswordAuthentication yes
