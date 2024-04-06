@@ -25,6 +25,7 @@
   libtool
   pinentry-curses
   tmux
+  screen
   sqlite
 
   file
