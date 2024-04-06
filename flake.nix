@@ -6,6 +6,7 @@
       url = "github:nix-community/emacs-overlay/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
@@ -17,7 +18,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, unstable, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, unstable, home-manager, nixos-hardware, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -38,6 +39,7 @@
           # specialArgs = { inherit inputs; };
           modules = [
             { nixpkgs.overlays = [ unstable-overlay ]; }
+            nixos-hardware.nixosModules.framework-13-7040-amd
             ./hosts/NixFrame/configuration.nix
             home-manager.nixosModules.home-manager
             {
