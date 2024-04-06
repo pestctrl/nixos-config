@@ -44,6 +44,7 @@
   lm_sensors
   parallel
   mtr
+  tftp
 
   (python311.withPackages (pythonPackages: with pythonPackages; [
     pymupdf
