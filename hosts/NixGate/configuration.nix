@@ -62,6 +62,19 @@
     packages = with pkgs; [];
   };
 
+  users.users.nshields = {
+    isNormalUser = true;
+    description = "Nikolai Shields";
+    packages = with pkgs; [];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8O6W8B0w4JdCl+1AoHEQ861gVPkPxH0FWU1tM3JVxb"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOjlyVh1/GW3KTdGnzSDP6oii13NLIk61v6FFKuRcvz/"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINX5/yQ/mXI/qqWHWd0+lNt6rBnhDA9p5YgMBmfp3Xtk"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtQOHXIfltnEVMxgHlxgUNB/o6Bey6vdMWtwSfo+U4q"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG90xfsjQSCH/nKyXlBujpJshZHb9yWzqDH8fLKKl9T2"
+    ];
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
