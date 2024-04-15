@@ -54,8 +54,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    unstable.firefox
-    unstable.google-chrome
+    update.firefox
+    update.google-chrome
     bitwarden
     vlc
     mpv
@@ -64,13 +64,13 @@
     audacity
 
     qdirstat
-    unstable.signal-desktop
+    update.signal-desktop
     parsec-bin
-    unstable.discord
-    unstable.telegram-desktop
+    update.discord
+    update.telegram-desktop
     dunst
     shutter
-    # unstable.rustdesk
+    # update.rustdesk
 
     pcmanfm
     libsForQt5.dolphin

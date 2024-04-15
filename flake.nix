@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    update.url = "github:nixos/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay/master";
@@ -18,12 +19,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, unstable, home-manager, nixos-hardware, ... }@inputs:
+  outputs = { self, nixpkgs, update, unstable, home-manager, nixos-hardware, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       unstable-overlay = final: prev: {
         unstable = import unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
+      update-overlay = final: prev: {
+        update = import update {
           inherit system;
           config.allowUnfree = true;
         };
@@ -38,7 +45,7 @@
           inherit system;
           # specialArgs = { inherit inputs; };
           modules = [
-            { nixpkgs.overlays = [ unstable-overlay ]; }
+            { nixpkgs.overlays = [ unstable-overlay update-overlay ]; }
             nixos-hardware.nixosModules.framework-13-7040-amd
             ./hosts/NixFrame/configuration.nix
             home-manager.nixosModules.home-manager
@@ -55,7 +62,7 @@
           inherit system;
           # specialArgs = { inherit inputs; };
           modules = [
-            { nixpkgs.overlays = [ unstable-overlay ]; }
+            { nixpkgs.overlays = [ unstable-overlay update-overlay ]; }
             ./hosts/NixDawn/configuration.nix
             home-manager.nixosModule
             {
@@ -73,7 +80,7 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            { nixpkgs.overlays = [ unstable-overlay ]; }
+            { nixpkgs.overlays = [ unstable-overlay update-overlay ]; }
             ./hosts/NixGate/configuration.nix
           ];
         };
