@@ -29,6 +29,9 @@
   screen
   sqlite
 
+  docker
+  docker-compose
+
   file
   lynx
   wget
