@@ -5,19 +5,16 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ../../common/moms-house
-    ../../common/configuration.nix
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+    ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "NixGate"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -51,28 +48,12 @@
     xkbVariant = "";
   };
 
-  # Virtualizer Agent
-  services.qemuGuest.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.benson = {
     isNormalUser = true;
     description = "Benson Chu";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
-  };
-
-  users.users.nshields = {
-    isNormalUser = true;
-    description = "Nikolai Shields";
-    packages = with pkgs; [];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8O6W8B0w4JdCl+1AoHEQ861gVPkPxH0FWU1tM3JVxb"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOjlyVh1/GW3KTdGnzSDP6oii13NLIk61v6FFKuRcvz/"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINX5/yQ/mXI/qqWHWd0+lNt6rBnhDA9p5YgMBmfp3Xtk"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtQOHXIfltnEVMxgHlxgUNB/o6Bey6vdMWtwSfo+U4q"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG90xfsjQSCH/nKyXlBujpJshZHb9yWzqDH8fLKKl9T2"
-    ];
   };
 
   # Allow unfree packages
@@ -111,4 +92,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
+
 }
