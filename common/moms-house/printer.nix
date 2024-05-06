@@ -20,8 +20,4 @@
       openFirewall = true;
     };
   };
-
-  networking.hosts = {
-    "192.168.1.78" = [ "BRWDCE994530FB4.local" "BRWDCE994530FB4" ];
-  };
 }
