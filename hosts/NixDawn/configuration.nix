@@ -65,6 +65,7 @@
     udisks2.enable = true;
     devmon.enable = true;
     tumbler.enable = true;
+    fwupd.enable = true;
 
     logind = {
       extraConfig = ''
@@ -109,8 +110,13 @@
     };
   };
 
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation = {
+    virtualbox.host.enable = true;
+
+    docker.enable = true;
+  };
   users.extraGroups.vboxusers.members = [ "benson" ];
+  users.extraGroups.docker.members = [ "benson" ];
 
   environment.systemPackages = with pkgs; [
     pavucontrol
