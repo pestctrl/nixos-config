@@ -85,6 +85,15 @@
           ];
         };
 
+        NixSentinel = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            { nixpkgs.overlays = [ unstable-overlay update-overlay ]; }
+            ./hosts/NixSentinel/configuration.nix
+          ];
+        };
+
         # nixosConfigurations.LenoNix = nixpkgs.lib.nixosSystem {
         #   system = "x86_64-linux";
         #   modules = [ ./hosts/NixFrame/configuration.nix ];
