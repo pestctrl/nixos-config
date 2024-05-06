@@ -72,6 +72,8 @@
     shutter
     # update.rustdesk
 
+    docker
+
     pcmanfm
     libsForQt5.dolphin
     libsForQt5.dolphin-plugins
@@ -85,5 +87,14 @@
 
     yt-dlp
     dconf
+
+    (beets.override {
+      pluginOverrides = {
+        extrafiles = {
+          enable = true;
+          propagatedBuildInputs = [ beetsPackages.extrafiles ];
+        };
+      };
+    })
   ];
 }

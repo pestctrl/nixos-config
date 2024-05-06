@@ -29,7 +29,6 @@
   screen
   sqlite
 
-  docker
   docker-compose
 
   file
@@ -62,14 +61,6 @@
     # chromaprint
   ]))
 
-  (beets.override {
-    pluginOverrides = {
-      extrafiles = {
-        enable = true;
-        propagatedBuildInputs = [ beetsPackages.extrafiles ];
-      };
-    };
-  })
   chromaprint
   ocrmypdf
 
