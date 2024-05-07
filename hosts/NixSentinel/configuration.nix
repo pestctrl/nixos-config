@@ -45,9 +45,19 @@
   };
 
   # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+  services = {
+    apcupsd = {
+      enable = true;
+
+      configText = ''
+        UPSTYPE usb
+      '';
+    };
+
+    xserver = {
+      layout = "us";
+      xkbVariant = "";
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
