@@ -46,20 +46,38 @@
 
   # Configure keymap in X11
   services = {
-    apcupsd = {
-      enable = true;
+    # apcupsd = {
+    #   enable = true;
 
-      configText = ''
-        UPSTYPE usb
-        NISIP 127.0.0.1
-      '';
-    };
+    #   configText = ''
+    #     UPSTYPE usb
+    #     NISIP 127.0.0.1
+    #   '';
+    # };
 
     xserver = {
       layout = "us";
       xkbVariant = "";
     };
   };
+
+  # power.ups = {
+  #   enable = true;
+  #   mode = "netserver";
+
+  #   ups."rack_ups" = {
+  #     driver = "usbhid-ups";
+  #     port = "auto";
+  #     description = "Server UPS";
+  #   };
+
+  #   users.upsmon = {
+  #     passwordFile = "/path/to/upsmon.password";
+  #     upsmon = "master";
+  #   };
+
+  #   upsmon.monitor."rack_ups".user = "upsmon";
+  # };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.benson = {
