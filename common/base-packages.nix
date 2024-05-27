@@ -17,7 +17,7 @@
 
   unstable.emacs
   notmuch mu isync
-  keychain ledger gnupg
+  keychain ledger ledger2beancount gnupg
   mailutils
   # sendmail
 

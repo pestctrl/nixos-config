@@ -96,5 +96,7 @@
         };
       };
     })
+
+    (gnuplot.override { withQt = true; })
   ];
 }
