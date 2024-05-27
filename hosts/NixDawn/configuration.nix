@@ -36,6 +36,7 @@
       firefox
       kate
       steam
+      moonlight-qt
       dolphin
       breeze-icons
       xautolock
