@@ -20,4 +20,8 @@
       openFirewall = true;
     };
   };
+
+  networking.hosts = {
+    "10.0.11.2" = [ "BrotherPrinter4.local" "BrotherPrinter4" ];
+  };
 }
