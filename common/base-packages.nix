@@ -17,8 +17,10 @@
 
   unstable.emacs
   notmuch mu isync
-  keychain ledger ledger2beancount gnupg
+  keychain ledger gnupg
+  ledger2beancount beancount
   mailutils
+  pandoc texlive.combined.scheme-full
   # sendmail
 
   cmake
