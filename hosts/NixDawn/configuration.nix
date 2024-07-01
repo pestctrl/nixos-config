@@ -7,6 +7,7 @@
   imports = [
     ../../common/configuration.nix
     ../../common/user-facing.nix
+    ../../common/development-machine.nix
     ../../common/lxd-setup.nix
     ../../common/moms-house
     ../../common/exwm.nix
@@ -123,6 +124,7 @@
     pavucontrol
     unstable.rustdesk
     gkraken
+    # (pkgs.callPackage /home/benson/workspace/peter-nixos/mfcl2690dw/default.nix { } )
   ];
 
   hardware.gkraken.enable = true;
