@@ -28,7 +28,7 @@
     rizin
     cutter
 
-    nodejs_21
+    nodejs_22
 
     minikube
     kubectl

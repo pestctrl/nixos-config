@@ -8,9 +8,6 @@
   ];
 
   services.xserver = {
-    displayManager = {
-      defaultSession = "none+my-exwm";
-    };
 
     windowManager.session = [{
       name = "my-exwm";
@@ -18,14 +15,24 @@
         ${pkgs.emacs-unstable}/bin/emacs -l /home/benson/.emacs.d/init.el
       '';
     }];
+
+    # gpg-agent = {
+    #   enable = true;
+    #   pinentryFlavor = "gtk2";
+    # };
+  };
+
+  services.displayManager = {
+    defaultSession = "none+my-exwm";
   };
 
   programs = {
     nm-applet.enable = true;
+
     gnupg.agent = {
       enable = true;
-      pinentryFlavor = "gtk2";
       enableSSHSupport = true;
+      pinentryPackage = pkgs.pinentry-gtk2;
     };
   };
 

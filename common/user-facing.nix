@@ -31,21 +31,26 @@
     # Enable the KDE Plasma Desktop Environment.
     desktopManager.plasma5.enable = true;
 
-    # Enable sddm
+    # Enable sddm and startx
     displayManager = {
-      sddm.enable = true;
       startx.enable = true;
     };
 
     # Configure keymap in X11
-    layout = "us";
-    xkbVariant = "";
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
+  };
 
-    libinput = {
-      enable = true;
-      touchpad = {
-        naturalScrolling = true;
-      };
+  services.displayManager = {
+    sddm.enable = true;
+  };
+
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      naturalScrolling = true;
     };
   };
 
@@ -90,14 +95,16 @@
     yt-dlp
     dconf
 
-    (beets.override {
-      pluginOverrides = {
-        extrafiles = {
-          enable = true;
-          propagatedBuildInputs = [ beetsPackages.extrafiles ];
-        };
-      };
-    })
+    # TODO: Re-enable extrafiles
+    (beets# .override {
+    #   pluginOverrides = {
+    #     extrafiles = {
+    #       enable = true;
+    #       propagatedBuildInputs = [ beetsPackages.extrafiles ];
+    #     };
+    #   };
+    # }
+    )
 
     (gnuplot.override { withQt = true; })
   ];
