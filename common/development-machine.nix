@@ -12,6 +12,7 @@
     lld
     clang-tools_16 # clangd, clang-format
     llvmPackages_16.libllvm
+    bear
     rr
 
     nodejs_21
