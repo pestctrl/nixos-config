@@ -21,6 +21,7 @@
   ledger2beancount beancount
   mailutils
   pandoc texlive.combined.scheme-full
+  w3m lynx
   # sendmail
 
   cmake
