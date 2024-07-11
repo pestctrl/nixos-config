@@ -1,6 +1,11 @@
 { inputs, config, pkgs, ... }:
 
 {
+  environment.variables = {
+    # Valgrind like to use this instead of HOSTNAME
+    HOST = config.networking.hostName;
+  };
+
   environment.systemPackages = with pkgs; [
     sbcl
     racket
@@ -14,6 +19,7 @@
     llvmPackages_16.libllvm
     bear
     rr
+    valgrind
 
     nodejs_21
   ];
