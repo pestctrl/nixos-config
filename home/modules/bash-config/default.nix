@@ -15,6 +15,7 @@ let
   bash-drv = builtins.fetchGit {
     url = "https://github.com/pestctrl/bash-config";
     ref = "master";
+    rev = "f88071e92523a271dd553a20e60c8afaaf2dae0b";
   };
 in
 {
@@ -25,7 +26,7 @@ in
   config = lib.mkIf cfg.enable {
     # Why can't I do the following?
     # home.file."${config.xdg.configHome}/bash-config/emacs.sh"
-    # xdg.configFile."bash-config/emacs.sh".source = "${bash-drv}/emacs.sh";
+    xdg.configFile."bash-config/emacs.sh".source = "${bash-drv}/emacs.sh";
 
     # home.file.".bashrc".source = "${bash-drv}/bashrc.sh";
     programs.bash.bashrcExtra = ''
