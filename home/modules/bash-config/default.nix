@@ -12,11 +12,9 @@ let
   #   '';
   # };
 
-  bash-drv = builtins.fetchGit {
-    url = "https://github.com/pestctrl/bash-config";
-    ref = "master";
-    rev = "f88071e92523a271dd553a20e60c8afaaf2dae0b";
-  };
+  bash-drv = (import ../../nvfetch/_sources/generated.nix {
+    inherit (pkgs) fetchurl fetchgit fetchFromGitHub dockerTools;
+  }).bash-config.src;
 in
 {
   options = {

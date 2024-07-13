@@ -1,0 +1,5 @@
+[bash-config]
+src.git = "https://github.com/pestctrl/bash-config"
+src.branch = "master"
+# fetch.git = "https://github.com/pestctrl/bash-config"
+fetch.github = "pestctrl/bash-config"

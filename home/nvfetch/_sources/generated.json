@@ -1,0 +1,22 @@
+{
+    "bash-config": {
+        "cargoLocks": null,
+        "date": "2024-07-13",
+        "extract": null,
+        "name": "bash-config",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "pestctrl",
+            "repo": "bash-config",
+            "rev": "f88071e92523a271dd553a20e60c8afaaf2dae0b",
+            "sha256": "sha256-+gQ28icbsv2+Jmxvm02OYWKCuFqtUoAdjDmWt3YgjKI=",
+            "type": "github"
+        },
+        "version": "f88071e92523a271dd553a20e60c8afaaf2dae0b"
+    }
+}

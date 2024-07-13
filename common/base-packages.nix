@@ -2,6 +2,7 @@
   nix-index
   home-manager
   nil
+  nvfetcher
 
   gcc
   git
