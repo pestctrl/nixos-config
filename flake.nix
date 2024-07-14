@@ -71,13 +71,17 @@
         # };
       };
 
+      packages."${system}" = {
+        mps-debug = pkgs.mps-debug;
+      };
+
       devShells."${system}" = {
         default = pkgs.mkShell {
           # packages = with pkgs; [mps-debug];
           # nativeBuildInputs = with pkgs; [ mps-debug ] ++ pkgs.emacs.nativeBuildInputs;
           # buildInputs = pkgs.emacs.buildInputs;
           packages = with pkgs; [ mps-debug ];
-          inputsFrom = with pkgs; [ emacs ];
+          # inputsFrom = with pkgs; [ emacs ];
 
           shellHook = ''
             export MPS_LIB="${pkgs.mps-debug}/lib"
