@@ -3,26 +3,26 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     update.url = "github:nixos/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    bashcfg-input = {
-      url = "github:pestctrl/bash-config/master";
-      flake = false;
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay/master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = { self, nixpkgs, update, unstable, home-manager, nixos-hardware, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = import ./common/overlays.nix inputs;
+      };
       mkSystem = h: {
         "${h}" = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -43,9 +43,11 @@
     in {
 
       nixosConfigurations =
-        (nixpkgs.lib.foldr (a: b: a // b) {}
-          (map mkSystem ["NixDawn" "NixFrame"])) // {
-        NixGate = nixpkgs.lib.nixosSystem {
+        (pkgs.lib.foldr (a: b: a // b) {}
+          (map mkSystem ["NixDawn" "NixFrame"]))
+
+        // {
+        NixGate = pkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
@@ -54,7 +56,7 @@
           ];
         };
 
-        NixSentinel = nixpkgs.lib.nixosSystem {
+        NixSentinel = pkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
@@ -63,10 +65,28 @@
           ];
         };
 
-        # nixosConfigurations.LenoNix = nixpkgs.lib.nixosSystem {
+        # LenoNix = nixpkgs.lib.nixosSystem {
         #   system = "x86_64-linux";
         #   modules = [ ./hosts/NixFrame/configuration.nix ];
         # };
+      };
+
+      devShells."${system}" = {
+        default = pkgs.mkShell {
+          # packages = with pkgs; [mps-debug];
+          # nativeBuildInputs = with pkgs; [ mps-debug ] ++ pkgs.emacs.nativeBuildInputs;
+          # buildInputs = pkgs.emacs.buildInputs;
+          packages = with pkgs; [ mps-debug ];
+          inputsFrom = with pkgs; [ emacs ];
+
+          shellHook = ''
+            export MPS_LIB="${pkgs.mps-debug}/lib"
+            export MPS_INC="${pkgs.mps-debug}/include"
+            echo "MPS debug environment!"
+            echo "MPS_LIB = $MPS_LIB"
+            echo "MPS_INC = $MPS_INC"
+          '';
+        };
       };
 
       homeConfigurations."benson" = home-manager.lib.homeManagerConfiguration {

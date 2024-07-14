@@ -1,22 +1,5 @@
 {
   "nodes": {
-    "bashcfg-input": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1704461224,
-        "narHash": "sha256-lbMvlgLwAgAytz/mmOFMYJu40bKGgtYGHWVG9T1Ypos=",
-        "owner": "pestctrl",
-        "repo": "bash-config",
-        "rev": "015ac81d3ee483ff0b3f13c5e9c912cf428dd745",
-        "type": "github"
-      },
-      "original": {
-        "owner": "pestctrl",
-        "ref": "master",
-        "repo": "bash-config",
-        "type": "github"
-      }
-    },
     "emacs-overlay": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -129,7 +112,6 @@
     },
     "root": {
       "inputs": {
-        "bashcfg-input": "bashcfg-input",
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",

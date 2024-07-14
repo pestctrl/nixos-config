@@ -22,6 +22,18 @@
     valgrind
 
     nodejs_21
+
+    # mps.overrideAttrs (old: {
+    #   pname = "mps";
+    #   version = "1.118.0";
+
+    #   src = fetchFromGitHub {
+    #     owner = "Ravenbrook";
+    #     repo = "mps";
+    #     rev = "refs/tags/release-${version}";
+    #     hash = "sha256-3ql3jWLccgnQHKf23B1en+nJ9rxqmHcWd7aBr93YER0=";
+    #   };
+    # })
   ];
 
   boot.kernel.sysctl."kernel.perf_event_paranoid" = 1;
