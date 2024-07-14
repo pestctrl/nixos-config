@@ -85,7 +85,7 @@
       userEmail = "bensonchu457@gmail.com";
       extraConfig = {
         core = {
-          editor = "emacsclient";
+          editor = "emacsclient -n";
         };
       };
     };
