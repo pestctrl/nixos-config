@@ -83,6 +83,8 @@
           packages = with pkgs; [ mps-debug ];
           # inputsFrom = with pkgs; [ emacs ];
 
+          # LDFLAGS="-L$MPS_LIB" CFLAGS="-O0 -g3 -isystem $MPS_INC" \
+          #   ./configure --with-mps=debug --with-native-compilation=no --enable-checking='yes,glyphs'
           shellHook = ''
             export MPS_LIB="${pkgs.mps-debug}/lib"
             export MPS_INC="${pkgs.mps-debug}/include"
