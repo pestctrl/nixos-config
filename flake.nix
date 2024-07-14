@@ -23,31 +23,13 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      unstable-overlay = final: prev: {
-        unstable = import unstable {
+      mkSystem = h: {
+        "${h}" = nixpkgs.lib.nixosSystem {
           inherit system;
-          config.allowUnfree = true;
-        };
-      };
-      update-overlay = final: prev: {
-        update = import update {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
-      # Perhaps this could've been presented as an overlay?
-      # bashcfg-overlay = final: prev: {
-      # };
-    in {
-
-      nixosConfigurations = {
-        NixFrame = nixpkgs.lib.nixosSystem {
-          inherit system;
-          # specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs; };
           modules = [
-            { nixpkgs.overlays = [ unstable-overlay update-overlay ]; }
-            nixos-hardware.nixosModules.framework-13-7040-amd
-            ./hosts/NixFrame/configuration.nix
+            ./common/configuration.nix
+            (./. + "/hosts/${h}/configuration.nix")
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = { inherit inputs; };
@@ -57,30 +39,17 @@
             }
           ];
         };
+      };
+    in {
 
-        NixDawn = nixpkgs.lib.nixosSystem {
-          inherit system;
-          # specialArgs = { inherit inputs; };
-          modules = [
-            { nixpkgs.overlays = [ unstable-overlay update-overlay ]; }
-            ./hosts/NixDawn/configuration.nix
-            home-manager.nixosModule
-            {
-              home-manager = {
-                extraSpecialArgs = { inherit inputs; };
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.benson.imports = [ ./home/home.nix ];
-              };
-            }
-          ];
-        };
-
+      nixosConfigurations =
+        (nixpkgs.lib.foldr (a: b: a // b) {}
+          (map mkSystem ["NixDawn" "NixFrame"])) // {
         NixGate = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            { nixpkgs.overlays = [ unstable-overlay update-overlay ]; }
+            ./common/configuration.nix
             ./hosts/NixGate/configuration.nix
           ];
         };
@@ -89,7 +58,7 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            { nixpkgs.overlays = [ unstable-overlay update-overlay ]; }
+            ./common/configuration.nix
             ./hosts/NixSentinel/configuration.nix
           ];
         };

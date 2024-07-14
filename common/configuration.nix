@@ -3,10 +3,27 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { inputs, config, pkgs, ... }:
-
+let
+  system = "x86_64-linux";
+in
 {
   imports = [
     ../modules/default.nix
+  ];
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      unstable = import inputs.unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    })
+    (final: prev: {
+      update = import inputs.update {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    })
   ];
 
   nix.settings.experimental-features = "nix-command flakes";
