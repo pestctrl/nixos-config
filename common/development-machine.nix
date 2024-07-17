@@ -4,6 +4,7 @@
   environment.variables = {
     # Valgrind like to use this instead of HOSTNAME
     HOST = config.networking.hostName;
+    DIRENV_SKIP_TIMEOUT = "TRUE";
   };
 
   environment.systemPackages = with pkgs; [
