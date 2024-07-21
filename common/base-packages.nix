@@ -17,6 +17,10 @@
   nfs-utils
 
   # unstable.emacs
+  #
+  # Probably this is being overwritten by home-manager.
+  #
+  # TODO: Resolve the disparity.
   emacs-git
   notmuch mu isync
   keychain ledger gnupg
