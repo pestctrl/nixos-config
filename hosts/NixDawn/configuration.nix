@@ -5,6 +5,7 @@
 { config, pkgs, ... }:
 {
   imports = [
+    ../../common/configuration.nix
     ../../common/user-facing.nix
     ../../common/development-machine.nix
     ../../common/lxd-setup.nix

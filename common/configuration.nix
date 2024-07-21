@@ -24,11 +24,11 @@ in
         config.allowUnfree = true;
       };
     })
-  ];
+  ] ++ import ./overlays.nix inputs;
 
-  nix.nixPath = [ "/home/benson/.nix-defexpr/channels"
+  nix.nixPath = [ # "/home/benson/.nix-defexpr/channels"
                   "nixpkgs=${inputs.nixpkgs}"
-                  "nixos-config=${inputs.self}"
+                  "nixos-config=${inputs.self}/hosts/${config.networking.hostName}/configuration.nix"
                   "/nix/var/nix/profiles/per-user/root/channels"];
 
   nix.settings.experimental-features = "nix-command flakes";

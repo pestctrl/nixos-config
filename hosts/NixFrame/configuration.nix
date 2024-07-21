@@ -2,6 +2,7 @@
 {
   imports = [
     # ./home-git-repos.nix
+    ../../common/configuration.nix
     ../../common/development-machine.nix
     ../../common/laptop-things.nix
     ../../common/exwm.nix

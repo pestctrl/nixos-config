@@ -28,7 +28,6 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            ./common/configuration.nix
             (./. + "/hosts/${h}/configuration.nix")
             home-manager.nixosModules.home-manager
             {
