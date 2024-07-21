@@ -26,6 +26,11 @@ in
     })
   ];
 
+  nix.nixPath = [ "/home/benson/.nix-defexpr/channels"
+                  "nixpkgs=${inputs.nixpkgs}"
+                  "nixos-config=${inputs.self}"
+                  "/nix/var/nix/profiles/per-user/root/channels"];
+
   nix.settings.experimental-features = "nix-command flakes";
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
