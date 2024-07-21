@@ -16,7 +16,8 @@
   cifs-utils
   nfs-utils
 
-  unstable.emacs
+  # unstable.emacs
+  emacs-git
   notmuch mu isync
   keychain ledger gnupg
   ledger2beancount beancount

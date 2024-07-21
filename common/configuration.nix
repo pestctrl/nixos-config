@@ -24,7 +24,9 @@ in
         config.allowUnfree = true;
       };
     })
-  ] ++ import ./overlays.nix inputs;
+  ] ++ import ./overlays.nix inputs ++ [
+    inputs.emacs-overlay.overlays.default
+  ];
 
   nix.nixPath = [ # "/home/benson/.nix-defexpr/channels"
                   "nixpkgs=${inputs.nixpkgs}"

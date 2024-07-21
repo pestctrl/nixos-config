@@ -2,18 +2,20 @@
   "nodes": {
     "emacs-overlay": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": [
+          "flake-utils"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ],
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1703984610,
-        "narHash": "sha256-UMMRKB3qpm64rO3eVlDf2o7IHb68nRoWJE9LL9132A8=",
+        "lastModified": 1721552966,
+        "narHash": "sha256-zvzQgQEMxTaRpvtHlsNMjgdOiOvexfCE2hRaadSS6OY=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "fae6a53b30177995da0262a1b539898c48071f4b",
+        "rev": "ab15d82f94c8f6373fec1f363c5b6c631453950b",
         "type": "github"
       },
       "original": {
@@ -28,11 +30,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1701680307,
-        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
         "type": "github"
       },
       "original": {
@@ -96,16 +98,16 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1703467016,
-        "narHash": "sha256-/5A/dNPhbQx/Oa2d+Get174eNI3LERQ7u6WTWOlR1eQ=",
+        "lastModified": 1721409541,
+        "narHash": "sha256-b6PLr0Ty7JPDBtJtjnYzlBf02bbH9alWMAgispMkTwk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d02d818f22c777aa4e854efc3242ec451e5d462a",
+        "rev": "0c53b6b8c2a3e46c68e04417e247bba660689c9d",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-23.11",
+        "ref": "nixos-24.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -113,6 +115,7 @@
     "root": {
       "inputs": {
         "emacs-overlay": "emacs-overlay",
+        "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

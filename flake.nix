@@ -3,6 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     update.url = "github:nixos/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -13,15 +14,18 @@
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay/master";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
   };
 
-  outputs = { self, nixpkgs, update, unstable, home-manager, nixos-hardware, ... }@inputs:
+  outputs = { self, nixpkgs, update, unstable, home-manager, nixos-hardware, emacs-overlay, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        overlays = import ./common/overlays.nix inputs;
+        overlays =
+          [emacs-overlay.overlays.default] ++
+          (import ./common/overlays.nix inputs);
       };
       mkSystem = h: {
         "${h}" = nixpkgs.lib.nixosSystem {
