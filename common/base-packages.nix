@@ -21,7 +21,7 @@
   # Probably this is being overwritten by home-manager.
   #
   # TODO: Resolve the disparity.
-  emacs-git
+  emacs-unstable
   notmuch mu isync
   keychain ledger gnupg
   ledger2beancount beancount

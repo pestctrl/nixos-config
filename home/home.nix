@@ -95,7 +95,7 @@
     };
 
     emacs = {
-      package = pkgs.emacs-git;
+      package = pkgs.emacs-unstable;
       enable = true;
       extraPackages = epkgs: with epkgs; [
         mu4e
