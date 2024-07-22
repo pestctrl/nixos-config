@@ -1,8 +1,12 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports = [
     ./modules
+  ];
+
+  nixpkgs.overlays = [
+    inputs.emacs-overlay.overlays.default
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -91,6 +95,7 @@
     };
 
     emacs = {
+      package = pkgs.emacs-git;
       enable = true;
       extraPackages = epkgs: with epkgs; [
         mu4e
