@@ -77,7 +77,7 @@
   #  /etc/profiles/per-user/benson/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "emacsclient";
+    EDITOR = "emacsclient -n";
   };
 
   # Let Home Manager install and manage itself.
@@ -89,7 +89,7 @@
       userEmail = "bensonchu457@gmail.com";
       extraConfig = {
         core = {
-          editor = "emacsclient -n";
+          editor = "emacsclient";
         };
       };
     };
