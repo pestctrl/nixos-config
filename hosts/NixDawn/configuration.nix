@@ -117,6 +117,7 @@
 
     docker.enable = true;
   };
+
   users.extraGroups.vboxusers.members = [ "benson" ];
   users.extraGroups.docker.members = [ "benson" ];
 
