@@ -38,7 +38,7 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.benson.imports = [ ./home/home.nix ];
+              home-manager.users.benson.imports = [ ./home/users/benson.nix ];
             }
           ];
         };
@@ -99,12 +99,22 @@
         };
       };
 
-      homeConfigurations."benson" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-          ./home/home.nix
-        ];
+      homeConfigurations = {
+        "benson" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [
+            ./home/users/benson.nix
+          ];
+        };
+
+        "work" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [
+            ./home/users/work.nix
+          ];
+        };
       };
     };
 }
