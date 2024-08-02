@@ -32,6 +32,8 @@
     # Enable sddm, add exwm
     displayManager = {
       sddm.enable = true;
+      startx.enable = true;
+
       defaultSession = "none+exwm";
     };
 
@@ -81,9 +83,6 @@
     libsForQt5.kdegraphics-thumbnailers
 
     pavucontrol
-
-    xorg.xinit
-    sx
 
     yt-dlp
     dconf
