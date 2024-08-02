@@ -1,7 +1,6 @@
 { inputs, config, pkgs, ... }:
 
 {
-  nix.settings.experimental-features = "nix-command flakes";
 
   # Enable sound with pipewire.
   sound.enable = true;
