@@ -7,9 +7,17 @@
     networkmanagerapplet
   ];
 
-  services.xserver.windowManager.exwm = {
-    enable = true;
-    enableDefaultConfig = false;
+  services.xserver = {
+    displayManager = {
+      defaultSession = "none+my-exwm";
+    };
+
+    windowManager.session = [{
+      name = "my-exwm";
+      start = ''
+        ${pkgs.emacs-unstable}/bin/emacs -l /home/benson/.emacs.d/init.el
+      '';
+    }];
   };
 
   programs = {

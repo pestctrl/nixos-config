@@ -33,8 +33,6 @@
     displayManager = {
       sddm.enable = true;
       startx.enable = true;
-
-      defaultSession = "none+exwm";
     };
 
     # Configure keymap in X11
