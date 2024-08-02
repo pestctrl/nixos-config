@@ -11,6 +11,7 @@
   };
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
+  networking.wireless.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
