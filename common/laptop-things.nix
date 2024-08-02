@@ -21,4 +21,8 @@
 
   # Configure console keymap
   console.keyMap = "dvorak";
+
+  environment.systemPackages = with pkgs; [
+    brightnessctl
+  ];
 }
