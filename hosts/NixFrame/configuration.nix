@@ -5,7 +5,6 @@
     ../../common/configuration.nix
     ../../common/development-machine.nix
     ../../common/laptop-things.nix
-    ../../common/exwm.nix
     # Include the results of the hardware scan.
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
     ./hardware-configuration.nix

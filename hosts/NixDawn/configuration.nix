@@ -10,7 +10,6 @@
     ../../common/development-machine.nix
     ../../common/lxd-setup.nix
     ../../common/moms-house
-    ../../common/exwm.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];

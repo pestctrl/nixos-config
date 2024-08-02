@@ -1,6 +1,9 @@
 { inputs, config, pkgs, ... }:
 
 {
+  imports = [
+    ./exwm.nix
+  ];
 
   # Enable sound with pipewire.
   sound.enable = true;
