@@ -21,7 +21,8 @@
   # Probably this is being overwritten by home-manager.
   #
   # TODO: Resolve the disparity.
-  emacs-unstable
+  ((emacsPackagesFor emacs-unstable).emacsWithPackages
+    (epkgs: with epkgs; [ treesit-grammars.with-all-grammars ]))
   notmuch mu isync
   keychain ledger gnupg
   ledger2beancount beancount

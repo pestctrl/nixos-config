@@ -95,7 +95,11 @@
     };
 
     emacs = {
-      package = pkgs.emacs-unstable;
+      package = (
+        (pkgs.emacsPackagesFor pkgs.emacs-unstable)
+          .emacsWithPackages (epkgs: with epkgs; [
+            treesit-grammars.with-all-grammars
+          ]));
       enable = true;
       extraPackages = epkgs: with epkgs; [
         mu4e
