@@ -22,6 +22,12 @@
     rr
     valgrind
 
+    # RE Tools
+    radare2
+    gcc-arm-embedded
+    rizin
+    cutter
+
     nodejs_21
 
     # mps.overrideAttrs (old: {
