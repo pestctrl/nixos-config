@@ -34,6 +34,14 @@
     kubectl
     talosctl
     k9s
+    (wrapHelm kubernetes-helm {
+      plugins = with pkgs.kubernetes-helmPlugins; [
+        # helm-secrets
+        helm-diff
+        helm-s3
+        helm-git
+      ];
+    })
 
     # mps.overrideAttrs (old: {
     #   pname = "mps";
