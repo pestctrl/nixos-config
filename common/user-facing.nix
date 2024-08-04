@@ -64,6 +64,9 @@
     obs-studio
     gparted
     audacity
+    libreoffice
+
+    imagemagick
 
     qdirstat
     update.signal-desktop
