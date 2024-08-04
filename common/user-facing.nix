@@ -31,7 +31,7 @@
     # Enable the KDE Plasma Desktop Environment.
     desktopManager.plasma5.enable = true;
 
-    # Enable sddm, add exwm
+    # Enable sddm
     displayManager = {
       sddm.enable = true;
       startx.enable = true;
