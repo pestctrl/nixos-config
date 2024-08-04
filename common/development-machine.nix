@@ -30,6 +30,11 @@
 
     nodejs_21
 
+    minikube
+    kubectl
+    talosctl
+    k9s
+
     # mps.overrideAttrs (old: {
     #   pname = "mps";
     #   version = "1.118.0";

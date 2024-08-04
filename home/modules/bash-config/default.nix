@@ -29,6 +29,10 @@ in
     # home.file.".bashrc".source = "${bash-drv}/bashrc.sh";
     programs.bash.bashrcExtra = ''
       source ${bash-drv}/bashrc.sh
+
+      # Need to figure out how to conditionally generate this
+      alias k=kubectl
+      source <(kubectl completion bash | sed s/kubectl/k/g)
     '';
   };
 }
