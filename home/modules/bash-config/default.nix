@@ -12,7 +12,7 @@ let
   #   '';
   # };
 
-  bash-drv = (import ../../nvfetch/_sources/generated.nix {
+  bash-drv = (import ../../../nvfetch/_sources/generated.nix {
     inherit (pkgs) fetchurl fetchgit fetchFromGitHub dockerTools;
   }).bash-config.src;
 in
