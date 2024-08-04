@@ -28,10 +28,23 @@ in
     inputs.emacs-overlay.overlays.default
   ];
 
-  nix.nixPath = [ # "/home/benson/.nix-defexpr/channels"
-                  "nixpkgs=${inputs.nixpkgs}"
-                  "nixos-config=${inputs.self}/hosts/${config.networking.hostName}/configuration.nix"
-                  "/nix/var/nix/profiles/per-user/root/channels"];
+  nix = {
+    nixPath = [ # "/home/benson/.nix-defexpr/channels"
+      "nixpkgs=${inputs.nixpkgs}"
+      "nixos-config=${inputs.self}/hosts/${config.networking.hostName}/configuration.nix"
+      "/nix/var/nix/profiles/per-user/root/channels"];
+
+    # MY GOD, this is what is used for nix develop, nix run, etc.
+    registry = {
+      system = {
+        from = {
+          type = "indirect";
+          id = "system";
+        };
+        flake = inputs.nixpkgs;
+      };
+    };
+  };
 
   nix.settings.experimental-features = "nix-command flakes";
 
