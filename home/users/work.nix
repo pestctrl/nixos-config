@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./modules
+    ../modules
   ];
 
   nixpkgs.overlays = [
