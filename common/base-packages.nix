@@ -22,7 +22,10 @@
   #
   # TODO: Resolve the disparity.
   ((emacsPackagesFor emacs-unstable).emacsWithPackages
-    (epkgs: with epkgs; [ treesit-grammars.with-all-grammars ]))
+    (epkgs: with epkgs; [
+      treesit-grammars.with-all-grammars
+      mu4e
+    ]))
   notmuch mu isync
   keychain ledger gnupg
   ledger2beancount beancount
