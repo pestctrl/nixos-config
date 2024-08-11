@@ -90,6 +90,8 @@
     libsForQt5.ffmpegthumbs
     libsForQt5.kdegraphics-thumbnailers
 
+    qemu
+
     pavucontrol
 
     yt-dlp
