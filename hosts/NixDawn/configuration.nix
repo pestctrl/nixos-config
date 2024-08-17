@@ -125,6 +125,7 @@
     pavucontrol
     unstable.rustdesk
     gkraken
+    tarsnap
     # (pkgs.callPackage /home/benson/workspace/peter-nixos/mfcl2690dw/default.nix { } )
   ];
 
