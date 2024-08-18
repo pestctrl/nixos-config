@@ -14,6 +14,11 @@
   home.username = "benson";
   home.homeDirectory = "/home/benson";
 
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = "nix-command flakes";
+  };
+
   my.bash-config.enable = true;
 
   # This value determines the Home Manager release that your configuration is
@@ -44,6 +49,18 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.rizin
+    pkgs.radare2
+    pkgs.cutter
+    pkgs.ripgrep
+    pkgs.cmake
+    pkgs.libtool
+    pkgs.git
+    # pkgs.home-manager
+    pkgs.cmake
+    pkgs.gnumake
+    pkgs.libtool
+    pkgs.gcc
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
