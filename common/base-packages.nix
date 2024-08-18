@@ -31,6 +31,7 @@
   ledger2beancount beancount
   mailutils
   pandoc texlive.combined.scheme-full
+  texlivePackages.noto
   w3m lynx
   # sendmail
 
@@ -72,6 +73,8 @@
     beets
     clint
     # chromaprint
+
+    lxml
   ]))
 
   chromaprint

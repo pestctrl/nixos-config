@@ -57,6 +57,10 @@
   fonts = {
     packages = with pkgs; [
       roboto-mono
+      noto-fonts
+      noto-fonts-extra
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
     ];
   };
 
