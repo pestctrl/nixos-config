@@ -62,6 +62,8 @@
   mtr
   # tftp
 
+  zip
+
   (python311.withPackages (pythonPackages: with pythonPackages; [
     pymupdf
     pip
