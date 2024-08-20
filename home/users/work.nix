@@ -46,6 +46,18 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.rizin
+    pkgs.radare2
+    pkgs.cutter
+    pkgs.ripgrep
+    pkgs.cmake
+    pkgs.libtool
+    pkgs.git
+    # pkgs.home-manager
+    pkgs.cmake
+    pkgs.gnumake
+    pkgs.libtool
+    pkgs.gcc
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
