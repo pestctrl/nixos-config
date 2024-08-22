@@ -15,9 +15,11 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = lib.mkForce "us,us";
-    xkbVariant = lib.mkForce "dvorak,";
-    xkbOptions = "grp:win_space_toggle";
+    xkb = {
+      layout = lib.mkForce "us,us";
+      variant = lib.mkForce "dvorak,";
+      options = "grp:win_space_toggle";
+    };
   };
 
   # Configure console keymap
