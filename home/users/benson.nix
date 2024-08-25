@@ -82,6 +82,17 @@
     EDITOR = "emacsclient -n";
   };
 
+  accounts.email.accounts = {
+    fastmail = {
+      primary = true;
+      realName = "Benson Chu";
+      address = "bensonch457@fastmail.com";
+      aliases = ["me@mail.pestctrl.io"];
+      flavor = "fastmail.com";
+
+      mu.enable = true;
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs = {
