@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -14,10 +14,11 @@
   home.username = "benson";
   home.homeDirectory = "/home/benson";
 
-  nix = {
+  nix = (lib.mkIf (!config.submoduleSupport.enable) {
     package = pkgs.nix;
     settings.experimental-features = "nix-command flakes";
-  };
+    registry.nixpkgs.flake = inputs.nixpkgs;
+  });
 
   my.bash-config.enable = true;
 
@@ -81,7 +82,6 @@
     EDITOR = "emacsclient -n";
   };
 
-  nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
   # Let Home Manager install and manage itself.
   programs = {
