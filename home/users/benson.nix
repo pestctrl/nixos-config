@@ -133,6 +133,7 @@
       enable = true;
       frequency = "*:0/10";
       verbose = true;
+      postExec = "${pkgs.mu}/bin/mu index";
     };
   };
 }
