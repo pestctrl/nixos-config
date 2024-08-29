@@ -16,7 +16,11 @@
 
   # my.bash-config.enable = true;
 
-  nix.registry.nixpkgs.flake = inputs.nixpkgs;
+  nix = (lib.mkIf (!config.submoduleSupport.enable) {
+    package = pkgs.nix;
+    settings.experimental-features = "nix-command flakes";
+    registry.nixpkgs.flake = inputs.nixpkgs;
+  });
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -103,7 +107,7 @@
           ]));
     };
 
-    bash.enable = true; # see note on other shells below
+    # bash.enable = true; # see note on other shells below
   };
 
   services = {
