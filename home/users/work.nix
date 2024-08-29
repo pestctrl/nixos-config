@@ -94,11 +94,13 @@
     };
 
     emacs = {
-      package = pkgs.emacs-unstable;
       enable = true;
-      extraPackages = epkgs: with epkgs; [
-        mu4e
-      ];
+      package = (
+        (pkgs.emacsPackagesFor pkgs.emacs-unstable)
+          .emacsWithPackages (epkgs: with epkgs; [
+            treesit-grammars.with-all-grammars
+            mu4e
+          ]));
     };
 
     bash.enable = true; # see note on other shells below
