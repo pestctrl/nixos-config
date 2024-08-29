@@ -14,7 +14,7 @@
   home.username = "cvs";
   home.homeDirectory = "/home/cvs";
 
-  my.bash-config.enable = true;
+  # my.bash-config.enable = true;
 
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
