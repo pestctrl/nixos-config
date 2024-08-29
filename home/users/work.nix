@@ -101,7 +101,12 @@
       ];
     };
 
-    bash.enable = true; # see note on other shells below
+    bash = {
+      enable = true; # see note on other shells below
+      bashrcExtra = ''
+        source /home/cvs/.bashrc.backup
+      '';
+    };
   };
 
   services = {
