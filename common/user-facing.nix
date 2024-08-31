@@ -113,5 +113,7 @@
     )
 
     (gnuplot.override { withQt = true; })
+
+    appflowy
   ];
 }
