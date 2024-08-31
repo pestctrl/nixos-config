@@ -1,6 +1,11 @@
 { inputs, config, pkgs, lib, ... }:
-
-{
+let
+  my-emacs = ((pkgs.emacsPackagesFor pkgs.emacs-unstable)
+    .emacsWithPackages (epkgs: with epkgs; [
+      treesit-grammars.with-all-grammars
+      mu4e
+    ]));
+in {
   imports = [
     ../modules
   ];
@@ -90,6 +95,13 @@
       aliases = ["me@mail.pestctrl.io"];
       flavor = "fastmail.com";
 
+
+      imap.host = "imap.fastmail.com";
+      smtp.host = "smtp.fastmail.com";
+
+      userName = "bensonchu457@fastmail.com";
+      passwordCommand = ''${my-emacs}/bin/emacsclient -e '(get-authinfo "imap.fastmail.com" "993" "bensonchu457@fastmail.com")' | ${pkgs.coreutils}/bin/tr -d '"' '';
+
       mu.enable = true;
     };
   };
@@ -109,12 +121,7 @@
     };
 
     emacs = {
-      package = (
-        (pkgs.emacsPackagesFor pkgs.emacs-unstable)
-          .emacsWithPackages (epkgs: with epkgs; [
-            treesit-grammars.with-all-grammars
-            mu4e
-          ]));
+      package = my-emacs;
       enable = true;
     };
 
