@@ -8,16 +8,21 @@ let
 in {
   imports = [
     ../modules
+    ../../submodules
   ];
 
   nixpkgs.overlays = [
     inputs.emacs-overlay.overlays.default
   ];
 
+  my.beets-config.enable = true;
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "benson";
-  home.homeDirectory = "/home/benson";
+  home = {
+    username = "benson";
+    homeDirectory = "/home/benson";
+  };
 
   nix = (lib.mkIf (!config.submoduleSupport.enable) {
     package = pkgs.nix;
