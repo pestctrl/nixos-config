@@ -115,5 +115,8 @@
     (gnuplot.override { withQt = true; })
 
     appflowy
+
+    tageditor
+    easytag
   ];
 }
