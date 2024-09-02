@@ -9,6 +9,7 @@ in
 {
   imports = [
     ../modules/default.nix
+    ./flake-location.nix
   ];
 
   nixpkgs.overlays = [
@@ -29,9 +30,12 @@ in
   ];
 
   nix = {
-    nixPath = [ # "/home/benson/.nix-defexpr/channels"
+    settings.experimental-features = "nix-command flakes";
+
+    nixPath = [
+      "/home/benson/.nix-defexpr/channels"
       "nixpkgs=${inputs.nixpkgs}"
-      "nixos-config=${inputs.self}/hosts/${config.networking.hostName}/configuration.nix"
+      "nixos-config=${config.my.flakeLocation}/hosts/${config.networking.hostName}/configuration.nix"
       "/nix/var/nix/profiles/per-user/root/channels"];
 
     # MY GOD, this is what is used for nix develop, nix run, etc.
@@ -45,8 +49,6 @@ in
       };
     };
   };
-
-  nix.settings.experimental-features = "nix-command flakes";
 
   # Enable networking
   networking.networkmanager.enable = true;
