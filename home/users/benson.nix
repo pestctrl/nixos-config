@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }@args:
 let
   my-emacs = ((pkgs.emacsPackagesFor pkgs.emacs-unstable)
     .emacsWithPackages (epkgs: with epkgs; [
@@ -16,6 +16,8 @@ in {
   ];
 
   my.beets-config.enable = true;
+
+  my.flakeLocation = lib.mkIf (builtins.hasAttr "osConfig" args) args.osConfig.my.flakeLocation;
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
