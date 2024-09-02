@@ -19,10 +19,16 @@ in
       file = {
         ".config/beets/config.yaml" = lib.mkIf (!(
           config.my.flakeLocation == null &&
-          lib.warn "Didn't set 'my.flakeLocation', I won't symlink config.yaml into place" true
+          (lib.warn
+            "Didn't set 'my.flakeLocation', I won't symlink beets' config.yaml into place"
+            true)
         )) {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.my.flakeLocation}/submodules/beets-config/config.yaml";
+          # Recursive only applies to directories. If false, do one
+          # symlink (which is the directory). Otherwise, do every file
+          # recursively
+          #
           # recursive = true;
         };
       };
