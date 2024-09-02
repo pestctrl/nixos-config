@@ -5,9 +5,9 @@ in
 {
   options = {
     my.flakeLocation = lib.mkOption {
-      default = "/home/${config.home.username}/nixos-config";
+      default = null;
       description = "Location of nixos flake for config";
-      type = lib.types.path;
+      type = lib.types.nullOr lib.types.path;
     };
     my.beets-config.enable = lib.mkEnableOption "Enable beets configuration file";
   };
@@ -17,7 +17,10 @@ in
 
     home = {
       file = {
-        ".config/beets/config.yaml" = {
+        ".config/beets/config.yaml" = lib.mkIf (!(
+          config.my.flakeLocation == null &&
+          lib.warn "Didn't set 'my.flakeLocation', I won't symlink config.yaml into place" true
+        )) {
           source = config.lib.file.mkOutOfStoreSymlink
             "${config.my.flakeLocation}/submodules/beets-config/config.yaml";
           # recursive = true;
