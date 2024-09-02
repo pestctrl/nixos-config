@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, lib, ... }:
 let
   system = "x86_64-linux";
 in
@@ -35,7 +35,7 @@ in
     nixPath = [
       "/home/benson/.nix-defexpr/channels"
       "nixpkgs=${inputs.nixpkgs}"
-      "nixos-config=${config.my.flakeLocation}/hosts/${config.networking.hostName}/configuration.nix"
+      config.my.nixosConfigLocation
       "/nix/var/nix/profiles/per-user/root/channels"];
 
     # MY GOD, this is what is used for nix develop, nix run, etc.
