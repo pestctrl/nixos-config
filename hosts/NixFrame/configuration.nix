@@ -10,6 +10,8 @@
     ./hardware-configuration.nix
   ];
 
+  my.flakeLocation = "/home/benson/workspace/nixos-config";
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
