@@ -102,7 +102,7 @@
     dconf
 
     # TODO: Re-enable extrafiles
-    (beets# .override {
+    (unstable.beets# .override {
     #   pluginOverrides = {
     #     extrafiles = {
     #       enable = true;
