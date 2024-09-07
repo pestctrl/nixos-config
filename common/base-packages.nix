@@ -33,6 +33,7 @@
   pandoc texlive.combined.scheme-full
   texlivePackages.noto
   w3m lynx
+  fzf
   # sendmail
 
   cmake
