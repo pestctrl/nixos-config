@@ -16,6 +16,7 @@ in {
   ];
 
   my.beets-config.enable = true;
+  my.tmux-config.enable = true;
 
   my.flakeLocation = lib.mkIf (builtins.hasAttr "osConfig" args) args.osConfig.my.flakeLocation;
 

@@ -1,3 +1,6 @@
 [submodule "submodules/beets-config"]
 	path = submodules/beets-config
 	url = ssh://git@gitea.pestctrl.io:2223/pestctrl/beets-config.git
+[submodule "submodules/tmux-config"]
+	path = submodules/tmux-config
+	url = git@github.com:pestctrl/tmux-config
