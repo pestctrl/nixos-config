@@ -9,6 +9,9 @@
 
   environment.systemPackages = with pkgs; [
     sbcl
+    zstd.dev
+    zstd.out
+
     racket
 
     ninja
