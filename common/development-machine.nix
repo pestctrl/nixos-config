@@ -45,6 +45,7 @@
         helm-git
       ];
     })
+    sops
 
     # mps.overrideAttrs (old: {
     #   pname = "mps";
