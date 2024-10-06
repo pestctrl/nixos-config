@@ -21,6 +21,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "NixDawn"; # Define your hostname.
+  networking.hostId = "5640b87e";
   networking.wireless.enable = true;
 
   fileSystems."/home/benson/workspace" = {
@@ -129,6 +130,7 @@
     gkraken
     tarsnap
     # (pkgs.callPackage /home/benson/workspace/peter-nixos/mfcl2690dw/default.nix { } )
+    clasp
   ];
 
   hardware.gkraken.enable = true;
