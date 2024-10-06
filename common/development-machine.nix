@@ -46,6 +46,8 @@
       ];
     })
     sops
+    postgresql
+    basez
 
     # mps.overrideAttrs (old: {
     #   pname = "mps";
