@@ -15,6 +15,7 @@
   samba
   cifs-utils
   nfs-utils
+  sshfs
 
   # unstable.emacs
   #
