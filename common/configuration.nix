@@ -29,8 +29,6 @@ in
     inputs.emacs-overlay.overlays.default
   ];
 
-  boot.supportedFilesystems = [ "zfs" ];
-
   nix = {
     settings.experimental-features = "nix-command flakes";
 
