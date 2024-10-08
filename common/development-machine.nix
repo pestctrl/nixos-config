@@ -24,6 +24,7 @@
     bear
     rr
     valgrind
+    xdot
 
     # RE Tools
     radare2
