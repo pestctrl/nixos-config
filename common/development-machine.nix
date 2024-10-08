@@ -25,6 +25,7 @@
     rr
     valgrind
     xdot
+    graphviz
 
     # RE Tools
     radare2
