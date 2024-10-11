@@ -99,15 +99,15 @@ in {
     fastmail = {
       primary = true;
       realName = "Benson Chu";
-      address = "bensonch457@fastmail.com";
-      aliases = ["me@mail.pestctrl.io"];
+      address = "bensonchu@fastmail.com";
+      aliases = ["me@mail.pestctrl.io" "bensonchu457@fastmail.com"];
       flavor = "fastmail.com";
 
 
       imap.host = "imap.fastmail.com";
       smtp.host = "smtp.fastmail.com";
 
-      userName = "bensonchu457@fastmail.com";
+      userName = "bensonchu@fastmail.com";
       passwordCommand = ''${my-emacs}/bin/emacsclient -e '(get-authinfo "imap.fastmail.com" "993" "bensonchu457@fastmail.com")' | ${pkgs.coreutils}/bin/tr -d '"' '';
 
       mu.enable = true;
