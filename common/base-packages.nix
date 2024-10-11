@@ -29,7 +29,7 @@
     ]))
   notmuch mu isync
   keychain ledger gnupg
-  ledger2beancount beancount
+  ledger2beancount beancount fava
   mailutils
   pandoc texlive.combined.scheme-full
   texlivePackages.noto
