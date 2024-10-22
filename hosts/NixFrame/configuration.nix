@@ -12,6 +12,8 @@
 
   my.flakeLocation = "/home/benson/workspace/nixos-config";
 
+  time.timeZone = "America/Los_Angeles";
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
