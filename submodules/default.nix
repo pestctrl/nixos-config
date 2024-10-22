@@ -43,6 +43,13 @@ in
             source = config.lib.file.mkOutOfStoreSymlink
               "${flakeSubmodules}/submodules/tmux-config/tmux.conf";
           });
+
+        ".config/wezterm/" = (mkIfFlakeLoc beets-cfg.enable
+          "I won't symlink wezterm config folder into place"
+          {
+            source = config.lib.file.mkOutOfStoreSymlink
+              "${config.my.flakeLocation}/submodules/wezterm-config/";
+          });
       };
     };
   };
