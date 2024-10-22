@@ -47,7 +47,6 @@
     description = "Benson Chu";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
       kate
       steam
     ];
