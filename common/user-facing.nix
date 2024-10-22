@@ -120,5 +120,7 @@
     easytag
 
     seafile-client
+
+    wezterm
   ];
 }
