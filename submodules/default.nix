@@ -29,7 +29,7 @@ in
           "I won't symlink beets' config.yaml into place"
           {
             source = config.lib.file.mkOutOfStoreSymlink
-              "${config.my.flakeLocation}/submodules/beets-config/config.yaml";
+              "${flakeSubmodules}/beets-config/config.yaml";
             # Recursive only applies to directories. If false, do one
             # symlink (which is the directory). Otherwise, do every file
             # recursively
@@ -41,7 +41,7 @@ in
           "I won't symlink tmux's tmux.conf into place"
           {
             source = config.lib.file.mkOutOfStoreSymlink
-              "${flakeSubmodules}/submodules/tmux-config/tmux.conf";
+              "${flakeSubmodules}/tmux-config/tmux.conf";
           });
 
         ".config/wezterm/" = (mkIfFlakeLoc beets-cfg.enable
