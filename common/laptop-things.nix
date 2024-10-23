@@ -30,5 +30,6 @@
     brightnessctl
     remmina
     acpi
+    powertop
   ];
 }
