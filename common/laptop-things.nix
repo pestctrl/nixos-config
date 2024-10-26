@@ -5,19 +5,21 @@
     ./user-facing.nix
   ];
 
-  services.logind = {
-    extraConfig = "HandlePowerKey=suspend";
-    lidSwitch = "suspend";
-  };
-
   hardware.bluetooth.enable = true; # enables support for Bluetooth
 
-  # Configure keymap in X11
-  services.xserver = {
-    xkb = {
-      layout = lib.mkForce "us,us";
-      variant = lib.mkForce "dvorak,";
-      options = "grp:win_space_toggle";
+  services = {
+    logind = {
+      extraConfig = "HandlePowerKey=suspend";
+      lidSwitch = "suspend";
+    };
+
+    # Configure keymap in X11
+    xserver = {
+      xkb = {
+        layout = lib.mkForce "us,us";
+        variant = lib.mkForce "dvorak,";
+        options = "grp:win_space_toggle";
+      };
     };
   };
 
