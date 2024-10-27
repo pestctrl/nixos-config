@@ -122,5 +122,7 @@
     seafile-client
 
     wezterm
+
+    xorg.xkbcomp
   ];
 }
