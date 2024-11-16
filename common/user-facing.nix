@@ -99,6 +99,7 @@
     pavucontrol
 
     yt-dlp
+    ffmpeg
     dconf
 
     # TODO: Re-enable extrafiles
