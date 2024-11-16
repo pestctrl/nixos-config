@@ -48,7 +48,7 @@
       ];
     })
     sops
-    postgresql
+    postgresql_16
     basez
 
     # mps.overrideAttrs (old: {
