@@ -102,6 +102,8 @@
     ffmpeg
     dconf
 
+    xfce.xfce4-terminal
+
     # TODO: Re-enable extrafiles
     (unstable.beets# .override {
     #   pluginOverrides = {
