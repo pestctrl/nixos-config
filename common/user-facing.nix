@@ -127,5 +127,7 @@
     wezterm
 
     xorg.xkbcomp
+
+    insomnia
   ];
 }
