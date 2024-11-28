@@ -43,6 +43,7 @@
       dolphin
       breeze-icons
       xautolock
+      unstable.mqtt-explorer
     ];
   };
 
