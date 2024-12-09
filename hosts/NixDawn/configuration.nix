@@ -131,6 +131,8 @@
     tarsnap
     # (pkgs.callPackage /home/benson/workspace/peter-nixos/mfcl2690dw/default.nix { } )
     clasp
+    leiningen
+    supercollider-with-sc3-plugins
   ];
 
   hardware.gkraken.enable = true;
