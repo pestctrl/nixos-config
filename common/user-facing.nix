@@ -76,6 +76,8 @@
     libreoffice
 
     imagemagick
+    gimp
+    inkscape
 
     qdirstat
     update.signal-desktop
