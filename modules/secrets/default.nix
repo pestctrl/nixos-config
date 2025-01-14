@@ -1,0 +1,3 @@
+{ inputs, config, pkgs, lib, ... }:
+{
+}
