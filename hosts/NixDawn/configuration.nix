@@ -159,6 +159,30 @@
     "10.254.0.1" = ["test.pestctrl.io"];
   };
 
+  systemd = {
+    targets.machines.enable = true;
+
+    nspawn."arch" = {
+      enable = true;
+      execConfig = {Boot = true;};
+
+      filesConfig = {
+        # Bind resolve.conf to get networking
+        BindReadOnly = ["/etc/resolv.conf:/etc/resolv.conf"];
+        # Bind any directories that you want to be shared
+        # Bind = ["/home/benson/"];
+        # BindUser = ["benson"];
+      };
+      networkConfig = {Private = false;};
+    };
+
+    services."systemd-nspawn@arch" = {
+      enable = true;
+      requiredBy = ["machines.target"];
+      overrideStrategy = "asDropin";
+    };
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
