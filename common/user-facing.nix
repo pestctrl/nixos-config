@@ -100,7 +100,7 @@
 
     pavucontrol
 
-    yt-dlp
+    update.yt-dlp
     ffmpeg
     dconf
 
