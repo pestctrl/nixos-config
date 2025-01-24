@@ -83,8 +83,9 @@
           # packages = with pkgs; [mps-debug];
           # nativeBuildInputs = with pkgs; [ mps-debug ] ++ pkgs.emacs.nativeBuildInputs;
           # buildInputs = pkgs.emacs.buildInputs;
-          packages = with pkgs; [ mps-debug ];
-          # inputsFrom = with pkgs; [ emacs ];
+          # packages = with pkgs; [ mps-debug ];
+          inputsFrom = with pkgs; [ emacs ];
+          packages = with pkgs; [ mps ];
 
           shellHook = ''
             export MPS_LIB="${pkgs.mps-debug}/lib"
