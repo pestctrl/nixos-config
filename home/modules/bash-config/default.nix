@@ -37,8 +37,10 @@ in
         source ${bash-drv}/bashrc.sh
 
         # Need to figure out how to conditionally generate this
-        alias k=kubectl
-        source <(kubectl completion bash | sed s/kubectl/k/g)
+        if [[ -n $(which kubectl) ]]; then
+          alias k=kubectl
+          source <(kubectl completion bash | sed s/kubectl/k/g)
+        fi
       '';
     };
   };
