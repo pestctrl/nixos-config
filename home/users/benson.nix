@@ -1,6 +1,11 @@
 { inputs, config, pkgs, lib, ... }@args:
 let
-  my-emacs = ((pkgs.emacsPackagesFor pkgs.emacs-unstable)
+  emacs-with-xrandr = pkgs.emacs-unstable.overrideAttrs (
+    oa: {
+      buildInputs = oa.buildInputs ++ [ pkgs.xorg.libXrandr ];
+    }
+  );
+  my-emacs = ((pkgs.emacsPackagesFor emacs-with-xrandr)
     .emacsWithPackages (epkgs: with epkgs; [
       treesit-grammars.with-all-grammars
       mu4e

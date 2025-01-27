@@ -86,6 +86,7 @@
           # packages = with pkgs; [ mps-debug ];
           inputsFrom = with pkgs; [ emacs ];
           packages = with pkgs; [ mps ];
+          buildInputs = with pkgs; [ xorg.libXrandr ];
 
           shellHook = ''
             echo "MPS debug environment!"
