@@ -27,12 +27,19 @@ in
     xdg.configFile."bash-config/emacs.sh".source = "${bash-drv}/emacs.sh";
 
     # home.file.".bashrc".source = "${bash-drv}/bashrc.sh";
-    programs.bash.bashrcExtra = ''
-      source ${bash-drv}/bashrc.sh
+    programs.bash = {
+      shellAliases = {
+        enable_gdb = "sudo sysctl kernel.yama.ptrace_scope=0";
+        disable_gdb = "sudo sysctl kernel.yama.ptrace_scope=3";
+      };
 
-      # Need to figure out how to conditionally generate this
-      alias k=kubectl
-      source <(kubectl completion bash | sed s/kubectl/k/g)
-    '';
+      bashrcExtra = ''
+        source ${bash-drv}/bashrc.sh
+
+        # Need to figure out how to conditionally generate this
+        alias k=kubectl
+        source <(kubectl completion bash | sed s/kubectl/k/g)
+      '';
+    };
   };
 }

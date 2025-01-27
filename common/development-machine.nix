@@ -64,5 +64,8 @@
     # })
   ];
 
-  boot.kernel.sysctl."kernel.perf_event_paranoid" = 1;
+  boot.kernel.sysctl = {
+    # "kernel.yama.ptrace_scope" = 0;
+    "kernel.perf_event_paranoid" = 1;
+  };
 }

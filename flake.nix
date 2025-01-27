@@ -88,16 +88,15 @@
           packages = with pkgs; [ mps ];
 
           shellHook = ''
+            echo "MPS debug environment!"
+            set -x
             export MPS_LIB="${pkgs.mps-debug}/lib"
             export MPS_INC="${pkgs.mps-debug}/include"
-            echo "MPS debug environment!"
-            echo "MPS_LIB = $MPS_LIB"
-            echo "MPS_INC = $MPS_INC"
+            unset EMACSLOADPATH
+            set +x
             echo "Configure Command: "
             echo -n '  LDFLAGS="-L$MPS_LIB" CFLAGS="-O0 -g3 -isystem $MPS_INC" '
             echo './configure --with-mps=debug --with-native-compilation=no --enable-checking="yes,glyphs"'
-            echo "If you are using Emacs from emacs-overlay, remember to unset environment variable EMACSLOADPATH"
-            echo "Need to investigate further as to why"
           '';
         };
       };
