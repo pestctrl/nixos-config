@@ -49,6 +49,15 @@ in
               "${config.my.flakeLocation}/submodules/wezterm-config/";
           });
       };
+
+      dataFile = {
+        "fonts/王漢宗中明體注音.ttf" = (mkIfFlakeLoc true
+          "I won't symlink chinese fonts into place"
+          {
+            source = config.lib.file.mkOutOfStoreSymlink
+              "${flakeSubmodules}/fonts/王漢宗中明體注音.ttf";
+          });
+      };
     };
   };
 }
