@@ -21,11 +21,9 @@ in
   };
 
   config = {
-    # xdg.configFile."beets/config.yaml".source = ./beets-config/config.yaml;
-
-    home = {
-      file = {
-        ".config/beets/config.yaml" = (mkIfFlakeLoc beets-cfg.enable
+    xdg = {
+      configFile = {
+        "beets/config.yaml" = (mkIfFlakeLoc beets-cfg.enable
           "I won't symlink beets' config.yaml into place"
           {
             source = config.lib.file.mkOutOfStoreSymlink
@@ -37,14 +35,14 @@ in
             # recursive = true;
           });
 
-        ".config/tmux/tmux.conf" = (mkIfFlakeLoc tmux-cfg.enable
+        "tmux/tmux.conf" = (mkIfFlakeLoc tmux-cfg.enable
           "I won't symlink tmux's tmux.conf into place"
           {
             source = config.lib.file.mkOutOfStoreSymlink
               "${flakeSubmodules}/tmux-config/tmux.conf";
           });
 
-        ".config/wezterm/" = (mkIfFlakeLoc beets-cfg.enable
+        "wezterm/" = (mkIfFlakeLoc beets-cfg.enable
           "I won't symlink wezterm config folder into place"
           {
             source = config.lib.file.mkOutOfStoreSymlink
