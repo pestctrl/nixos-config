@@ -95,6 +95,8 @@
     libsForQt5.ffmpegthumbs
     libsForQt5.kdegraphics-thumbnailers
 
+    p7zip
+
     qemu
 
     pavucontrol
