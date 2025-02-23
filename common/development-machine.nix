@@ -51,6 +51,8 @@
     postgresql_16
     basez
 
+    zeal
+
     # mps.overrideAttrs (old: {
     #   pname = "mps";
     #   version = "1.118.0";
