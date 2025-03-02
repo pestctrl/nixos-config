@@ -100,6 +100,16 @@
             echo './configure --with-mps=debug --with-native-compilation=no --enable-checking="yes,glyphs"'
           '';
         };
+
+        pymupdf = pkgs.mkShell {
+          venvDir = "./venv";
+          buildInputs = with pkgs.python312Packages; [
+            venvShellHook
+            python
+            pymupdf
+            icecream
+          ];
+        };
       };
 
       homeConfigurations = {
