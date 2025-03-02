@@ -79,7 +79,7 @@
       };
 
       devShells."${system}" = {
-        default = pkgs.mkShell {
+        emacs-devel = pkgs.mkShell {
           # packages = with pkgs; [mps-debug];
           # nativeBuildInputs = with pkgs; [ mps-debug ] ++ pkgs.emacs.nativeBuildInputs;
           # buildInputs = pkgs.emacs.buildInputs;
