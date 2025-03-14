@@ -48,7 +48,9 @@
     ripgrep
     git
 
-    cmake gnumake libtool gcc
+    cmatrix
+    cmake gnumake libtool roswell sbcl
+    dtc
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -106,6 +108,7 @@
           .emacsWithPackages (epkgs: with epkgs; [
             treesit-grammars.with-all-grammars
             mu4e
+            notmuch
           ]));
     };
 
