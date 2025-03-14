@@ -11,8 +11,10 @@
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "cvs";
-  home.homeDirectory = "/home/cvs";
+  # home.username = "cvs";
+  # home.homeDirectory = "/home/cvs";
+  home.username = "a0487752";
+  home.homeDirectory = "/home/a0487752";
 
   # my.bash-config.enable = true;
 
