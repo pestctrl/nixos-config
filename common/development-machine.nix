@@ -37,7 +37,7 @@
 
     minikube
     kubectl
-    talosctl
+    unstable.talosctl
     k9s
     (wrapHelm kubernetes-helm {
       plugins = with pkgs.kubernetes-helmPlugins; [
