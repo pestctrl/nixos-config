@@ -79,6 +79,15 @@
       };
 
       devShells."${system}" = {
+        emacs-min = pkgs.mkShell {
+          packages = with pkgs; [
+            git
+            libtool
+            cmake gcc make
+            roboto-mono deadgrep
+          ];
+        };
+
         emacs-devel = pkgs.mkShell {
           # packages = with pkgs; [mps-debug];
           # nativeBuildInputs = with pkgs; [ mps-debug ] ++ pkgs.emacs.nativeBuildInputs;
