@@ -81,6 +81,7 @@
       devShells."${system}" = {
         emacs-min = pkgs.mkShell {
           packages = with pkgs; [
+            emacs
             git
             libtool
             cmake gcc gnumake
