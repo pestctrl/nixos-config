@@ -84,7 +84,7 @@
             git
             libtool
             cmake gcc gnumake
-            roboto-mono deadgrep
+            roboto-mono ripgrep
           ];
         };
 
