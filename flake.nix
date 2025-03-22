@@ -83,7 +83,7 @@
           packages = with pkgs; [
             git
             libtool
-            cmake gcc make
+            cmake gcc gnumake
             roboto-mono deadgrep
           ];
         };
