@@ -34,6 +34,7 @@
     cutter
 
     nodejs_22
+    wireshark
 
     minikube
     kubectl
