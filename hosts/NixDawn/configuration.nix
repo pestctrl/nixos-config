@@ -43,6 +43,7 @@
       breeze-icons
       xautolock
       unstable.mqtt-explorer
+      musescore
     ];
   };
 
