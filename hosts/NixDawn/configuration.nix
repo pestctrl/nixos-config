@@ -22,7 +22,6 @@
 
   networking.hostName = "NixDawn"; # Define your hostname.
   networking.hostId = "5640b87e";
-  networking.wireless.enable = true;
 
   fileSystems."/home/benson/workspace" = {
     device = "/dev/disk/by-uuid/aa640eb6-0655-446a-8a12-5867eeef6638";
