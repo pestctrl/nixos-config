@@ -44,6 +44,7 @@
       xautolock
       unstable.mqtt-explorer
       musescore
+      unstable.spotify
       pulseaudio
     ];
   };
@@ -116,6 +117,14 @@
         Option "TearFree"
       '';
     };
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+    xdgOpenUsePortal = true;
   };
 
   virtualisation = {
