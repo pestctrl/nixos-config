@@ -44,6 +44,7 @@
       xautolock
       unstable.mqtt-explorer
       musescore
+      pulseaudio
     ];
   };
 
@@ -65,6 +66,7 @@
     # appearance.
     #
     # picom.enable = true;
+    pipewire.pulse.enable = true;
     pcscd.enable = true;
     tailscale.enable = true;
     gvfs.enable = true;
@@ -147,7 +149,11 @@
     ];
 
     # Syncthing
-    allowedTCPPorts = [ 22000 ];
+    allowedTCPPorts = [
+      # vlc audio streaming
+      8888
+      22000
+    ];
     allowedUDPPorts = [ 22000 21027 ];
   };
 
