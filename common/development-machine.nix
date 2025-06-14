@@ -12,6 +12,8 @@
     zstd.dev
     zstd.out
 
+    devenv
+
     racket
 
     ninja
