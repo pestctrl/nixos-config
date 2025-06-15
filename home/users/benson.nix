@@ -1,16 +1,5 @@
 { inputs, config, pkgs, lib, ... }@args:
-let
-  emacs-with-xrandr = pkgs.emacs-unstable.overrideAttrs (
-    oa: {
-      buildInputs = oa.buildInputs ++ [ pkgs.xorg.libXrandr ];
-    }
-  );
-  my-emacs = ((pkgs.emacsPackagesFor emacs-with-xrandr)
-    .emacsWithPackages (epkgs: with epkgs; [
-      treesit-grammars.with-all-grammars
-      mu4e
-    ]));
-in {
+{
   imports = [
     ../modules
     ../../submodules
@@ -113,7 +102,7 @@ in {
       smtp.host = "smtp.fastmail.com";
 
       userName = "bensonchu@fastmail.com";
-      passwordCommand = ''${my-emacs}/bin/emacsclient -e '(get-authinfo "imap.fastmail.com" "993" "bensonchu457@fastmail.com")' | ${pkgs.coreutils}/bin/tr -d '"' '';
+      passwordCommand = ''${pkgs.myEmacs}/bin/emacsclient -e '(get-authinfo "imap.fastmail.com" "993" "bensonchu457@fastmail.com")' | ${pkgs.coreutils}/bin/tr -d '"' '';
 
       mu.enable = true;
     };
@@ -134,7 +123,7 @@ in {
     };
 
     emacs = {
-      package = my-emacs;
+      package = pkgs.myEmacs;
       enable = true;
     };
 

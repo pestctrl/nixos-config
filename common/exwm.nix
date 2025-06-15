@@ -1,12 +1,4 @@
 { config, pkgs, ... }:
-let
-  emacs =
-    ((pkgs.emacsPackagesFor pkgs.emacs-unstable).emacsWithPackages
-      (epkgs: with epkgs; [
-        treesit-grammars.with-all-grammars
-        mu4e
-      ]));
-in
 {
   environment.systemPackages = with pkgs; [
     picom
@@ -19,7 +11,7 @@ in
     windowManager.session = [{
       name = "my-exwm";
       start = ''
-        ${emacs}/bin/emacs -l /home/benson/.emacs.d/init.el
+        ${pkgs.myEmacs}/bin/emacs -l /home/benson/.emacs.d/init.el
       '';
     }];
 
