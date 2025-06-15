@@ -125,7 +125,7 @@ in {
     git = {
       enable = true;
       userName = "Benson Chu";
-      userEmail = "bensonchu457@gmail.com";
+      userEmail = "me@mail.pestctrl.io";
       extraConfig = {
         core = {
           editor = "emacsclient";
