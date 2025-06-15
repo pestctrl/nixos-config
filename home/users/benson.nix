@@ -94,7 +94,7 @@
       primary = true;
       realName = "Benson Chu";
       address = "bensonchu@fastmail.com";
-      aliases = ["me@mail.pestctrl.io" "bensonchu457@fastmail.com"];
+      aliases = ["dev@mail.pestctrl.io" "me@mail.pestctrl.io" "bensonchu457@fastmail.com"];
       flavor = "fastmail.com";
 
 
@@ -114,7 +114,7 @@
     git = {
       enable = true;
       userName = "Benson Chu";
-      userEmail = "me@mail.pestctrl.io";
+      userEmail = "dev@mail.pestctrl.io";
       extraConfig = {
         core = {
           editor = "emacsclient";
