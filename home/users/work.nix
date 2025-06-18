@@ -5,10 +5,6 @@
     ../modules
   ];
 
-  nixpkgs.overlays = [
-    inputs.emacs-overlay.overlays.default
-  ];
-
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   # home.username = "cvs";
@@ -103,13 +99,7 @@
 
     emacs = {
       enable = true;
-      package = (
-        (pkgs.emacsPackagesFor pkgs.emacs-unstable)
-          .emacsWithPackages (epkgs: with epkgs; [
-            treesit-grammars.with-all-grammars
-            mu4e
-            notmuch
-          ]));
+      package = pkgs.myEmacs;
     };
 
     # bash.enable = true; # see note on other shells below
