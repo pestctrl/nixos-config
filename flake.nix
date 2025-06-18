@@ -130,7 +130,7 @@
           ];
         };
 
-        "work" = home-manager.lib.homeManagerConfiguration {
+        "a0487752" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [
