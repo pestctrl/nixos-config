@@ -97,6 +97,7 @@
     libsForQt5.kdegraphics-thumbnailers
 
     p7zip
+    unzip
 
     qemu
 
