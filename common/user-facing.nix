@@ -61,6 +61,7 @@
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       commit-mono
+      (pkgs.callPackage ./dotsies.nix {})
     ];
   };
 
