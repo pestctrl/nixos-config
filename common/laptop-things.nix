@@ -16,12 +16,12 @@
     # Configure keymap in X11
     xserver = {
       xkb = {
-        layout = lib.mkForce "neo_dvorak";
+        layout = lib.mkForce "neo_dvorak,us";
 
         extraLayouts = {
           neo_dvorak = {
             description = "Dvorak with Neo2 Extensions";
-            symbolsFile = ../xkb/symbols/neo_dvorak;
+            symbolsFile = ../res/xkb/symbols/neo_dvorak;
             languages = [ "eng" ];
           };
         };
