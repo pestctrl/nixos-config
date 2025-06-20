@@ -11,8 +11,7 @@ stdenv.mkDerivation rec {
   installPhase = ''
     mkdir -p $out/share/fonts/truetype
 
-    cp ${../res/font/Dotsies.ttf} $out/share/fonts/truetype
-    cp ${../res/font/siesdot.ttf} $out/share/fonts/truetype
+    cp -r ${../res/font} $out/share/fonts/truetype
   '';
 
   meta = {
