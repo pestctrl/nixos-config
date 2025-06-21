@@ -11,16 +11,9 @@ inputs:
     });
   })
 
-  (final: prev:
-    let
-      emacs-with-xrandr = final.emacs-unstable.overrideAttrs (
-        oa: {
-          buildInputs = oa.buildInputs ++ [ prev.xorg.libXrandr ];
-        }
-      );
-    in {
+  (final: prev: {
       myEmacs =
-        ((prev.emacsPackagesFor emacs-with-xrandr)
+        ((prev.emacsPackagesFor final.emacs-unstable)
           .emacsWithPackages (epkgs: with epkgs; [
             treesit-grammars.with-all-grammars
             mu4e
