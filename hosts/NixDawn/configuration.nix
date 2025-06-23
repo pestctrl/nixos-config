@@ -46,6 +46,7 @@
       musescore
       unstable.spotify
       pulseaudio
+      immich-cli
     ];
   };
 
@@ -138,7 +139,7 @@
 
   environment.systemPackages = with pkgs; [
     pavucontrol
-    unstable.rustdesk
+    # unstable.rustdesk
     tarsnap
     # (pkgs.callPackage /home/benson/workspace/peter-nixos/mfcl2690dw/default.nix { } )
     clasp
