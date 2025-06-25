@@ -40,6 +40,8 @@
     # '')
     roboto-mono
 
+    fastfetch
+
     rizin radare2 cutter
     ripgrep
     git
