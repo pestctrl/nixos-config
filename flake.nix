@@ -49,28 +49,29 @@
           (map mkSystem ["NixDawn" "NixFrame"]))
 
         // {
-        NixGate = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./common/configuration.nix
-            ./hosts/NixGate/configuration.nix
-          ];
-        };
 
-        NixSentinel = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./common/configuration.nix
-            ./hosts/NixSentinel/configuration.nix
-          ];
-        };
+          NixGate = nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs; };
+            modules = [
+              ./common/configuration.nix
+              ./hosts/NixGate/configuration.nix
+            ];
+          };
 
-        # LenoNix = nixpkgs.lib.nixosSystem {
-        #   system = "x86_64-linux";
-        #   modules = [ ./hosts/NixFrame/configuration.nix ];
-        # };
+          NixSentinel = nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs; };
+            modules = [
+              ./common/configuration.nix
+              ./hosts/NixSentinel/configuration.nix
+            ];
+          };
+
+          # LenoNix = nixpkgs.lib.nixosSystem {
+          #   system = "x86_64-linux";
+          #   modules = [ ./hosts/NixFrame/configuration.nix ];
+          # };
       };
 
       packages."${system}" = {
