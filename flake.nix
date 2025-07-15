@@ -15,6 +15,10 @@
       url = "github:nix-community/emacs-overlay/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, update, unstable, home-manager, nixos-hardware, emacs-overlay, ... }@inputs:
@@ -49,6 +53,14 @@
           (map mkSystem ["NixDawn" "NixFrame"]))
 
         // {
+	        NixWSL = nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs; };
+            modules = [
+              ./common/configuration.nix
+              ./hosts/NixWSL/configuration.nix
+            ];
+          };
 
           NixGate = nixpkgs.lib.nixosSystem {
             inherit system;
