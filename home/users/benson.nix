@@ -5,9 +5,9 @@
     ../../submodules
   ];
 
-  nixpkgs.overlays = [
+  nixpkgs.overlays = (lib.mkIf (!config.submoduleSupport.enable) [
     inputs.emacs-overlay.overlays.default
-  ];
+  ]);
 
   my.beets-config.enable = true;
   my.tmux-config.enable = true;
