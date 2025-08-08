@@ -55,6 +55,8 @@
     cmatrix
     cmake gnumake libtool roswell sbcl
     dtc
+
+    mold
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
