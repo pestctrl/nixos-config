@@ -3,6 +3,7 @@
 {
   imports = [
     ../modules
+    ../../submodules
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -13,6 +14,11 @@
   home.homeDirectory = "/home/a0487752";
 
   # my.bash-config.enable = true;
+  my = {
+    flakeLocation = "/scratch/benson/_repos-personal/nixos-config";
+    tmux-config.enable = true;
+    # work-bash-config.enable = true;
+  };
 
   nix = (lib.mkIf (!config.submoduleSupport.enable) {
     package = pkgs.nix;

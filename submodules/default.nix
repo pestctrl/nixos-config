@@ -2,6 +2,7 @@
 let
   beets-cfg = config.my.beets-config;
   tmux-cfg = config.my.tmux-config;
+  work-bash-cfg = config.my.work-bash-config;
   mkIfFlakeLoc = condition: errorMsg: value:
     (lib.mkIf (condition &&
                !(config.my.flakeLocation == null &&
@@ -18,9 +19,25 @@ in
     };
     my.beets-config.enable = lib.mkEnableOption "Enable beets configuration file";
     my.tmux-config.enable = lib.mkEnableOption "Enable tmux configuration file";
+    my.work-bash-config.enable = lib.mkEnableOption "Enable work bash configurations";
   };
 
   config = {
+    home.file = (mkIfFlakeLoc work-bash-cfg.enable
+      "I won't symlink bashrc and bash_profile into place"
+      {
+        ".bashrc" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.my.flakeLocation}/submodules/work-bash-config/dot-bashrc.sh";
+        };
+        ".bash_profile" = {
+          source = config.lib.file.mkOutOfStoreSymlink
+            "${config.my.flakeLocation}/submodules/work-bash-config/dot-bash_profile.sh";
+        };
+
+      }
+    );
+
     xdg = {
       configFile = {
         "beets/config.yaml" = (mkIfFlakeLoc beets-cfg.enable
@@ -47,6 +64,13 @@ in
           {
             source = config.lib.file.mkOutOfStoreSymlink
               "${config.my.flakeLocation}/submodules/wezterm-config/";
+          });
+
+        "bash/" = (mkIfFlakeLoc work-bash-cfg.enable
+          "I won't symlink bash config folder into place"
+          {
+            source = config.lib.file.mkOutOfStoreSymlink
+              "${config.my.flakeLocation}/submodules/work-bash-config/dot-config-bash/";
           });
       };
 
