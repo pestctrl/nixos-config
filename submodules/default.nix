@@ -28,11 +28,11 @@ in
       {
         ".bashrc" = {
           source = config.lib.file.mkOutOfStoreSymlink
-            "${config.my.flakeLocation}/submodules/work-bash-config/dot-bashrc.sh";
+            "${flakeSubmodules}/work-bash-config/dot-bashrc.sh";
         };
         ".bash_profile" = {
           source = config.lib.file.mkOutOfStoreSymlink
-            "${config.my.flakeLocation}/submodules/work-bash-config/dot-bash_profile.sh";
+            "${flakeSubmodules}/work-bash-config/dot-bash_profile.sh";
         };
 
       }
@@ -55,22 +55,21 @@ in
         "tmux/tmux.conf" = (mkIfFlakeLoc tmux-cfg.enable
           "I won't symlink tmux's tmux.conf into place"
           {
-            source = config.lib.file.mkOutOfStoreSymlink
-              "${flakeSubmodules}/tmux-config/tmux.conf";
+            source = getPath "${flakeSubmodules}/tmux-config/tmux.conf";
           });
 
         "wezterm/" = (mkIfFlakeLoc beets-cfg.enable
           "I won't symlink wezterm config folder into place"
           {
             source = config.lib.file.mkOutOfStoreSymlink
-              "${config.my.flakeLocation}/submodules/wezterm-config/";
+              "${flakeSubmodules}/wezterm-config/";
           });
 
         "bash/" = (mkIfFlakeLoc work-bash-cfg.enable
           "I won't symlink bash config folder into place"
           {
             source = config.lib.file.mkOutOfStoreSymlink
-              "${config.my.flakeLocation}/submodules/work-bash-config/dot-config-bash/";
+              "${flakeSubmodules}/work-bash-config/dot-config-bash/";
           });
       };
 
