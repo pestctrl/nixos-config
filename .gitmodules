@@ -7,3 +7,6 @@
 [submodule "submodules/wezterm-config"]
 	path = submodules/wezterm-config
 	url = git@github.com:pestctrl/wezterm-config
+[submodule "submodules/work-bash-config"]
+	path = submodules/work-bash-config
+	url = git@github.com:pestctrl/work-bash-config
