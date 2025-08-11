@@ -36,11 +36,11 @@
     description = "Benson Chu";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kate
+      kdePackages.kate
+      kdePackages.dolphin
+      kdePackages.breeze-icons
       steam
       moonlight-qt
-      dolphin
-      breeze-icons
       xautolock
       unstable.mqtt-explorer
       musescore
@@ -146,8 +146,6 @@
     leiningen
     supercollider-with-sc3-plugins
   ];
-
-  hardware.gkraken.enable = true;
 
   networking.firewall = {
     enable = true;

@@ -5,11 +5,10 @@
     ./exwm.nix
   ];
 
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services = {
 
+  services = {
+    # Enable sound with pipewire.
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -21,6 +20,7 @@
       # no need to redefine it in your config for now)
       # media-session.enable = true;
     };
+    pulseaudio.enable = false;
   };
 
   services.xserver = {
@@ -28,7 +28,7 @@
     enable = true;
 
     # Enable the KDE Plasma Desktop Environment.
-    desktopManager.plasma5.enable = true;
+    desktopManager.plasma6.enable = true;
 
     # Enable sddm and startx
     displayManager = {
@@ -91,10 +91,10 @@
     docker
 
     pcmanfm
-    libsForQt5.dolphin
-    libsForQt5.dolphin-plugins
-    libsForQt5.ffmpegthumbs
-    libsForQt5.kdegraphics-thumbnailers
+    kdePackages.dolphin
+    kdePackages.dolphin-plugins
+    kdePackages.ffmpegthumbs
+    kdePackages.kdegraphics-thumbnailers
 
     p7zip
     unzip
