@@ -20,36 +20,37 @@
       # no need to redefine it in your config for now)
       # media-session.enable = true;
     };
-    pulseaudio.enable = false;
-  };
 
-  services.xserver = {
-    # Enable the X11 windowing system.
-    enable = true;
+    pulseaudio.enable = false;
 
     # Enable the KDE Plasma Desktop Environment.
     desktopManager.plasma6.enable = true;
 
-    # Enable sddm and startx
+    xserver = {
+      # Enable the X11 windowing system.
+      enable = true;
+
+      # Enable sddm and startx
+      displayManager = {
+        startx.enable = true;
+      };
+
+      # Configure keymap in X11
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+    };
+
     displayManager = {
-      startx.enable = true;
+      sddm.enable = true;
     };
 
-    # Configure keymap in X11
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
-  };
-
-  services.displayManager = {
-    sddm.enable = true;
-  };
-
-  services.libinput = {
-    enable = true;
-    touchpad = {
-      naturalScrolling = true;
+    libinput = {
+      enable = true;
+      touchpad = {
+        naturalScrolling = true;
+      };
     };
   };
 
