@@ -15,6 +15,10 @@
       url = "github:nix-community/emacs-overlay/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, update, unstable, home-manager, nixos-hardware, emacs-overlay, ... }@inputs:
@@ -49,28 +53,37 @@
           (map mkSystem ["NixDawn" "NixFrame"]))
 
         // {
-        NixGate = pkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./common/configuration.nix
-            ./hosts/NixGate/configuration.nix
-          ];
-        };
+	        NixWSL = nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs; };
+            modules = [
+              ./common/configuration.nix
+              ./hosts/NixWSL/configuration.nix
+            ];
+          };
 
-        NixSentinel = pkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./common/configuration.nix
-            ./hosts/NixSentinel/configuration.nix
-          ];
-        };
+          NixGate = nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs; };
+            modules = [
+              ./common/configuration.nix
+              ./hosts/NixGate/configuration.nix
+            ];
+          };
 
-        # LenoNix = nixpkgs.lib.nixosSystem {
-        #   system = "x86_64-linux";
-        #   modules = [ ./hosts/NixFrame/configuration.nix ];
-        # };
+          NixSentinel = nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs; };
+            modules = [
+              ./common/configuration.nix
+              ./hosts/NixSentinel/configuration.nix
+            ];
+          };
+
+          # LenoNix = nixpkgs.lib.nixosSystem {
+          #   system = "x86_64-linux";
+          #   modules = [ ./hosts/NixFrame/configuration.nix ];
+          # };
       };
 
       packages."${system}" = {
