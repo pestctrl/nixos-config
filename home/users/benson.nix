@@ -12,7 +12,9 @@
   my.beets-config.enable = true;
   my.tmux-config.enable = true;
 
-  my.flakeLocation = lib.mkIf (builtins.hasAttr "osConfig" args) args.osConfig.my.flakeLocation;
+  my.flakeLocation = if (builtins.hasAttr "osConfig" args)
+                     then args.osConfig.my.flakeLocation
+                     else "/home/benson/nixos-config";
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.

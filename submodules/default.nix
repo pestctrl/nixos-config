@@ -55,7 +55,8 @@ in
         "tmux/tmux.conf" = (mkIfFlakeLoc tmux-cfg.enable
           "I won't symlink tmux's tmux.conf into place"
           {
-            source = getPath "${flakeSubmodules}/tmux-config/tmux.conf";
+            source = config.lib.file.mkOutOfStoreSymlink
+              "${flakeSubmodules}/tmux-config/tmux.conf";
           });
 
         "wezterm/" = (mkIfFlakeLoc beets-cfg.enable

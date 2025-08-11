@@ -23,6 +23,7 @@
   keychain ledger gnupg
   ledger2beancount beancount fava
   hledger
+  ledger-autosync
   mailutils
   pandoc texlive.combined.scheme-full
   texlivePackages.noto
@@ -72,6 +73,17 @@
     # chromaprint
 
     lxml
+
+    # RedditArchiver dependencies
+    pyyaml
+    anytree
+    colored
+    markdown2
+    praw
+    colored
+    prawcore
+
+    ofxclient
   ]))
 
   chromaprint
