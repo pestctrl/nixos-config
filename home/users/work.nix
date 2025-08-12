@@ -56,6 +56,8 @@
     cmake gnumake libtool roswell sbcl
     dtc
 
+    tmux
+
     mold
   ];
 
