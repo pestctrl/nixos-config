@@ -53,7 +53,7 @@
     git
 
     cmatrix
-    cmake gnumake libtool roswell sbcl
+    gnumake libtool roswell sbcl
     dtc
 
     clang-tools
