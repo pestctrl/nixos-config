@@ -58,6 +58,8 @@
 
     clang-tools
 
+    jira-cli-go
+
     tmux
 
     mold
