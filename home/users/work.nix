@@ -60,6 +60,10 @@
 
     jira-cli-go
 
+    direnv
+
+    firefox
+
     tmux
 
     mold
