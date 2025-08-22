@@ -15,10 +15,9 @@
 
     # Configure keymap in X11
     xserver = {
-      layout = lib.mkForce "neo_dvorak,us";
-      xkbOptions = "grp:ctrls_toggle";
-
       xkb = {
+        options = "grp:ctrls_toggle";
+        layout = lib.mkForce "neo_dvorak,us";
         extraLayouts = {
           neo_dvorak = {
             description = "Dvorak with Neo2 Extensions";
