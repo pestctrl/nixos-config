@@ -52,6 +52,13 @@ in
             # recursive = true;
           });
 
+        "beets/plugins/" = (mkIfFlakeLoc beets-cfg.enable
+          "I won't symlink beets' plugins directory into place"
+          {
+            source = config.lib.file.mkOutOfStoreSymlink
+              "${flakeSubmodules}/beets-config/plugins/";
+          });
+
         "tmux/tmux.conf" = (mkIfFlakeLoc tmux-cfg.enable
           "I won't symlink tmux's tmux.conf into place"
           {
