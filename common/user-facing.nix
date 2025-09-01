@@ -135,5 +135,7 @@
     xorg.xkbcomp
 
     insomnia
+
+    mujmap
   ];
 }
