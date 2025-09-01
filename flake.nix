@@ -41,7 +41,7 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.benson.imports = [ ./home/users/benson.nix ];
+              home-manager.users.benson = ./home/users/benson.nix;
             }
           ];
         };
