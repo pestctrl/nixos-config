@@ -12,11 +12,12 @@ inputs:
   })
 
   (final: prev: {
-      myEmacs =
-        ((prev.emacsPackagesFor final.emacs-unstable)
-          .emacsWithPackages (epkgs: with epkgs; [
-            treesit-grammars.with-all-grammars
-            mu4e
-          ]));
+    # final.emacs-git, final.emacs-unstable, or final.emacs-igc
+    myEmacs =
+      ((prev.emacsPackagesFor final.emacs-unstable)
+        .emacsWithPackages (epkgs: with epkgs; [
+          treesit-grammars.with-all-grammars
+          mu4e
+        ]));
     })
 ]
