@@ -71,6 +71,18 @@ in
     LC_TIME = "en_US.UTF-8";
   };
 
+  system.autoUpgrade = {
+    enable = true;
+    flake = "/home/benson/nixos-config";
+    flags = [
+      "--update-input"
+      "unstable"
+      "-L" # print build logs
+    ];
+    dates = "12:00";
+    randomizedDelaySec = "45min";
+  };
+
   environment.systemPackages = import ./base-packages.nix { inherit pkgs; };
 
   services.tailscale.enable = true;

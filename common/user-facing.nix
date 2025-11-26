@@ -81,10 +81,10 @@
     inkscape
 
     qdirstat
-    update.signal-desktop
+    unstable.signal-desktop
     parsec-bin
-    update.discord
-    update.telegram-desktop
+    unstable.discord
+    unstable.telegram-desktop
     dunst
     shutter
     # update.rustdesk
