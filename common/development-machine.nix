@@ -23,8 +23,8 @@
     lldb
     mold
     lld
-    clang-tools_16 # clangd, clang-format
-    llvmPackages_16.libllvm
+    clang-tools # clangd, clang-format
+    llvmPackages.libllvm
     bear
     rr
     valgrind

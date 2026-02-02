@@ -8,7 +8,7 @@
     ../../common/configuration.nix
     ../../common/user-facing.nix
     ../../common/development-machine.nix
-    ../../common/lxd-setup.nix
+    # ../../common/lxd-setup.nix
     ../../common/moms-house
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -77,11 +77,9 @@
     tumbler.enable = true;
     fwupd.enable = true;
 
-    logind = {
-      extraConfig = ''
-        IdleAction=hybrid-sleep
-        IdleActionSec=30min
-      '';
+    logind.settings.Login = {
+      IdleAction="hybrid-sleep";
+      IdleActionSec="30min";
     };
 
     apcupsd = {
@@ -142,7 +140,7 @@
     # unstable.rustdesk
     tarsnap
     # (pkgs.callPackage /home/benson/workspace/peter-nixos/mfcl2690dw/default.nix { } )
-    clasp
+    clasp-common-lisp
     leiningen
     supercollider-with-sc3-plugins
   ];

@@ -115,9 +115,11 @@
     home-manager.enable = true;
     git = {
       enable = true;
-      userName = "Benson Chu";
-      userEmail = "dev@mail.pestctrl.io";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Benson Chu";
+          email = "dev@mail.pestctrl.io";
+        };
         core = {
           editor = "emacsclient";
         };

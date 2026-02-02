@@ -58,7 +58,6 @@
     packages = with pkgs; [
       roboto-mono
       noto-fonts
-      noto-fonts-extra
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       commit-mono
@@ -68,7 +67,7 @@
   environment.systemPackages = with pkgs; [
     update.firefox
     update.google-chrome
-    bitwarden
+    bitwarden-desktop
     vlc
     mpv
     obs-studio
