@@ -9,22 +9,21 @@
 
   services = {
     logind = {
-      extraConfig = "HandlePowerKey=suspend";
-      lidSwitch = "suspend";
+      settings.Login = {
+        HandlePowerKey="suspend";
+        HandleLidSwitch="suspend";
+      };
     };
 
     # Configure keymap in X11
-    xserver = {
+    xserver.xkb = {
       layout = lib.mkForce "neo_dvorak,us";
-      xkbOptions = "grp:ctrls_toggle";
-
-      xkb = {
-        extraLayouts = {
-          neo_dvorak = {
-            description = "Dvorak with Neo2 Extensions";
-            symbolsFile = ../res/xkb/symbols/neo_dvorak;
-            languages = [ "eng" ];
-          };
+      options = "grp:ctrls_toggle";
+      extraLayouts = {
+        neo_dvorak = {
+          description = "Dvorak with Neo2 Extensions";
+          symbolsFile = ../res/xkb/symbols/neo_dvorak;
+          languages = [ "eng" ];
         };
       };
     };
