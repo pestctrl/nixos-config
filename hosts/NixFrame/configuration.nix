@@ -49,9 +49,11 @@
     packages = with pkgs; [
       kdePackages.kate
       steam
-      virtualbox
+      vlc
     ];
   };
+
+  virtualisation.virtualbox.host.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
