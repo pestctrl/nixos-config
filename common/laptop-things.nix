@@ -29,6 +29,8 @@
     };
   };
 
+  networking.networkmanager.packages = [pkgs.networkmanager-openvpn];
+
   # Configure console keymap
   console.keyMap = "dvorak";
 
