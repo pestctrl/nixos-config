@@ -49,6 +49,7 @@
     packages = with pkgs; [
       kdePackages.kate
       steam
+      virtualbox
     ];
   };
 
