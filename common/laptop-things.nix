@@ -29,6 +29,7 @@
     };
 
     automatic-timezoned.enable = true;
+    avahi.enable = true;
   };
 
   networking.networkmanager.plugins = [pkgs.networkmanager-openvpn];
