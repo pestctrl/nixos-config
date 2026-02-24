@@ -27,6 +27,8 @@
         };
       };
     };
+
+    automatic-timezoned.enable = true;
   };
 
   networking.networkmanager.plugins = [pkgs.networkmanager-openvpn];
