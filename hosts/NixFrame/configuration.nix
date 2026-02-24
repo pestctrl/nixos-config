@@ -45,7 +45,7 @@
   users.users.benson = {
     isNormalUser = true;
     description = "Benson Chu";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
       steam
@@ -53,7 +53,11 @@
     ];
   };
 
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation = {
+    virtualbox.host.enable = true;
+
+    docker.enable = true;
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
