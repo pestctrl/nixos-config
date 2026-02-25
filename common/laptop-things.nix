@@ -12,6 +12,7 @@
       settings.Login = {
         HandlePowerKey="suspend";
         HandleLidSwitch="suspend";
+        HandleLidSwitchDocked="suspend";
       };
     };
 
