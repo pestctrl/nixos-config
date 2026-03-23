@@ -128,8 +128,13 @@
   services = {
     mbsync = {
       enable = true;
-      frequency = "*:0/10";
+      frequency = "*:0/5";
       verbose = true;
+      package = pkgs.isync;
+      postExec = ''
+        ${pkgs.myEmacs}/bin/emacsclient -e \
+           "(mu4e-update-mail-and-index mu4e-index-update-in-background)"
+      '';
     };
   };
 }
