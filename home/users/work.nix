@@ -67,6 +67,14 @@
     tmux
 
     mold
+
+    aider-chat
+
+    rr
+
+    unstable.isync
+
+    mu
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -108,9 +116,11 @@
     home-manager.enable = true;
     git = {
       enable = true;
-      userName = "Benson Chu";
-      userEmail = "b-chu1@ti.com";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Benson Chu";
+          email = "b-chu1@ti.com";
+        };
         core = {
           editor = "emacsclient";
         };
