@@ -1,4 +1,4 @@
-inputs:
+inputs: system:
 [
   inputs.emacs-overlay.overlays.default
 

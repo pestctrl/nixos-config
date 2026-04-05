@@ -29,7 +29,7 @@
         allowUnfree = true;
         overlays =
           [emacs-overlay.overlays.default] ++
-          (import ./common/overlays.nix inputs);
+          (import ./common/overlays.nix inputs system);
       };
       mkSystem = h: {
         "${h}" = nixpkgs.lib.nixosSystem {
