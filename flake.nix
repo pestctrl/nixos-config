@@ -24,12 +24,12 @@
   outputs = { self, nixpkgs, update, unstable, home-manager, nixos-hardware, emacs-overlay, ... }@inputs:
     let
       system = "x86_64-linux";
+      overlays =
+        [emacs-overlay.overlays.default] ++
+        (import ./common/overlays.nix inputs system);
       pkgs = import nixpkgs {
-        inherit system;
-        allowUnfree = true;
-        overlays =
-          [emacs-overlay.overlays.default] ++
-          (import ./common/overlays.nix inputs system);
+        inherit system overlays;
+        config.allowUnfree = true;
       };
       mkSystem = h: {
         "${h}" = nixpkgs.lib.nixosSystem {
