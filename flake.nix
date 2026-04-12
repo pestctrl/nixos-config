@@ -50,7 +50,7 @@
 
       nixosConfigurations =
         (pkgs.lib.foldr (a: b: a // b) {}
-          (map mkSystem ["NixDawn" "NixFrame"]))
+          (map mkSystem ["NixDawn" "NixFrame" "Ythotha"]))
 
         // {
 	        NixWSL = nixpkgs.lib.nixosSystem {
