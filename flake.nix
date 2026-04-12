@@ -63,7 +63,7 @@
             ];
           };
 
-          NixGate = pkgs.lib.nixosSystem {
+          NixGate = nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = { inherit inputs; };
             modules = [
@@ -72,7 +72,7 @@
             ];
           };
 
-          NixSentinel = pkgs.lib.nixosSystem {
+          NixSentinel = nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = { inherit inputs; };
             modules = [
