@@ -91,7 +91,7 @@
         mps-debug = pkgs.mps-debug;
       };
 
-      devShells."${system}" = {
+      devShells."${system}" = rec {
         emacs-min = pkgs.mkShell {
           packages = with pkgs; [
             emacs
@@ -123,6 +123,8 @@
             echo './configure --with-mps=debug --with-native-compilation=no --enable-checking="yes,glyphs"'
           '';
         };
+
+        default = emacs-devel;
 
         pymupdf = pkgs.mkShell {
           venvDir = "./venv";
