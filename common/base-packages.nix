@@ -60,7 +60,9 @@
 
   zip
 
-  (python311.withPackages (pythonPackages: with pythonPackages; [
+  mupdf
+
+  (python3.withPackages (pythonPackages: with pythonPackages; [
     pymupdf
     pip
     colorama
@@ -84,6 +86,10 @@
     prawcore
 
     ofxclient
+
+    sympy
+
+    virtualenv
   ]))
 
   chromaprint
