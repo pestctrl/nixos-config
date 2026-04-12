@@ -55,6 +55,7 @@
     git
 
     cmake gnumake libtool gcc
+    claude-code
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
