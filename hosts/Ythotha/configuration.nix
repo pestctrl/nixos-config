@@ -44,6 +44,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    cmatrix
   ];
 
   # This value determines the NixOS release from which the default
