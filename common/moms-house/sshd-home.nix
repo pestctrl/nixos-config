@@ -23,6 +23,12 @@
           X11Forwarding yes
           PasswordAuthentication yes
           ChallengeResponseAuthentication yes
+
+      Match Address 100.121.66.46
+          X11UseLocalhost yes
+          X11Forwarding yes
+          PasswordAuthentication yes
+          ChallengeResponseAuthentication yes
     '';
   };
 
