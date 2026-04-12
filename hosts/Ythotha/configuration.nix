@@ -59,34 +59,9 @@
     variant = "";
   };
 
-  systemd.services.vncserver =
-    let
-      home = "/home/benson";
-    in {
-      enable = true;
-      environment = {
-        PATH = pkgs.lib.mkForce "/run/wrappers/bin:${home}/.nix-profile/bin:/nix/profile/bin:${home}/.local/state/nix/profile/bin:/etc/profiles/per-user/user/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin";
-      };
-      unitConfig = {
-        Description = "Remote desktop service (VNC)";
-        After = "syslog.target network.target";
-      };
-
-      serviceConfig = {
-        Type = "simple";
-        User = "benson";
-        WorkingDirectory = "${home}";
-
-        ExecStartPre = "${pkgs.bash}/bin/bash -c '${pkgs.tigervnc}/bin/vncserver -kill :1 > /dev/null 2>&1 || :'";
-        ExecStart = "${pkgs.xorg.xinit}/bin/xinit ${home}/.vnc/xstartup -- ${pkgs.tigervnc}/bin/Xvnc :1 -rfbauth ${home}/.vnc/passwd";
-        ExecStop = "${pkgs.tigervnc}/bin/vncserver -kill :1";
-
-      };
-
-      wantedBy = ["multi-user.target"];
-    };
-
-  networking.firewall.allowedTCPPorts = [ 5900 5901 5902 ];
+  # Make a VNC server available
+  systemd.services.vncserver = (import ../../common/exprs/make-vncserver.nix pkgs "benson" "5901");
+  networking.firewall.allowedTCPPorts = [ 5901 ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
