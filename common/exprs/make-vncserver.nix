@@ -1,4 +1,4 @@
-pkgs: user: port:
+pkgs: user: display: port: xstartup:
 {
   enable = true;
   environment = {
@@ -15,9 +15,9 @@ pkgs: user: port:
     WorkingDirectory = "/home/${user}";
     Restart = "always";
 
-    ExecStartPre = "${pkgs.bash}/bin/bash -c '${pkgs.tigervnc}/bin/vncserver -kill :1 > /dev/null 2>&1 || :'";
-    ExecStart = "${pkgs.xorg.xinit}/bin/xinit /home/${user}/.vnc/xstartup -- ${pkgs.tigervnc}/bin/Xvnc :1 -rfbauth /home/${user}/.vnc/passwd -rfbport ${port}";
-    ExecStop = "${pkgs.tigervnc}/bin/vncserver -kill :1";
+    ExecStartPre = "${pkgs.bash}/bin/bash -c '${pkgs.tigervnc}/bin/vncserver -kill ${display} > /dev/null 2>&1 || :'";
+    ExecStart = "${pkgs.xorg.xinit}/bin/xinit /home/${user}/.vnc/${xstartup} -- ${pkgs.tigervnc}/bin/Xvnc ${display} -rfbauth /home/${user}/.vnc/passwd -rfbport ${port}";
+    ExecStop = "${pkgs.tigervnc}/bin/vncserver -kill ${display}";
 
   };
 

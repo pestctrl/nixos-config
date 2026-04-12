@@ -22,9 +22,12 @@
 
   networking.hostName = "Ythotha"; # Define your hostname.
 
+  services.xserver.windowManager.i3.enable = true;
+
   # Make a VNC server available
-  systemd.services.vncserver = (import ../../common/exprs/make-vncserver.nix pkgs "benson" "5901");
-  networking.firewall.allowedTCPPorts = [ 5901 ];
+  systemd.services.vncserver_emacs = (import ../../common/exprs/make-vncserver.nix pkgs "benson" ":1" "5901" "xstartup");
+  systemd.services.vncserver_i3 = (import ../../common/exprs/make-vncserver.nix pkgs "benson" ":2" "5902" "i3");
+  networking.firewall.allowedTCPPorts = [ 5901 5902 ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.benson = {
