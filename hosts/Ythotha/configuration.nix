@@ -6,8 +6,11 @@
 
 {
   imports = [
+    ../../common/flake-location.nix
     ./hardware-configuration.nix
   ];
+
+  my.flakeLocation = "/home/benson/nixos-config/";
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -119,9 +122,6 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   fonts.packages = with pkgs; [
     roboto-mono
   ];
@@ -136,12 +136,12 @@
     xorg.xinit
     vim
     dmenu
-    konsole
     cmake
     gnumake
     gcc
     libtool
     git
+    ripgrep
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

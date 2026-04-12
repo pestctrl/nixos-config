@@ -26,13 +26,14 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
+        allowUnfree = true;
         overlays =
           [emacs-overlay.overlays.default] ++
           (import ./common/overlays.nix inputs);
       };
       mkSystem = h: {
         "${h}" = nixpkgs.lib.nixosSystem {
-          inherit system;
+          inherit system pkgs;
           specialArgs = { inherit inputs; };
           modules = [
             (./. + "/hosts/${h}/configuration.nix")
