@@ -11,6 +11,8 @@
 
   my.beets-config.enable = true;
   my.tmux-config.enable = true;
+  my.bash-config.enable = true;
+  my.wezterm-config.enable = true;
 
   my.flakeLocation = if (builtins.hasAttr "osConfig" args)
                      then args.osConfig.my.flakeLocation
@@ -28,8 +30,6 @@
     settings.experimental-features = "nix-command flakes";
     registry.nixpkgs.flake = inputs.nixpkgs;
   });
-
-  my.bash-config.enable = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

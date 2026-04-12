@@ -3,6 +3,7 @@ let
   beets-cfg = config.my.beets-config;
   tmux-cfg = config.my.tmux-config;
   work-bash-cfg = config.my.work-bash-config;
+  wezterm-cfg = config.my.wezterm-config;
   mkIfFlakeLoc = condition: errorMsg: value:
     (lib.mkIf (condition &&
                !(config.my.flakeLocation == null &&
@@ -18,6 +19,7 @@ in
       type = lib.types.nullOr lib.types.path;
     };
     my.beets-config.enable = lib.mkEnableOption "Enable beets configuration file";
+    my.wezterm-config.enable = lib.mkEnableOption "Enable wezterm configuration file";
     my.tmux-config.enable = lib.mkEnableOption "Enable tmux configuration file";
     my.work-bash-config.enable = lib.mkEnableOption "Enable work bash configurations";
   };
@@ -66,7 +68,7 @@ in
               "${flakeSubmodules}/tmux-config/tmux.conf";
           });
 
-        "wezterm/" = (mkIfFlakeLoc beets-cfg.enable
+        "wezterm/" = (mkIfFlakeLoc wezterm-cfg.enable
           "I won't symlink wezterm config folder into place"
           {
             source = config.lib.file.mkOutOfStoreSymlink
