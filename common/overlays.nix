@@ -19,7 +19,13 @@ inputs: system:
       ((prev.emacsPackagesFor final.emacs-unstable)
         .emacsWithPackages (epkgs: with epkgs; [
           treesit-grammars.with-all-grammars
-          mu4e
+          (mu4e.override (prev: {
+            mu = prev.mu.overrideAttrs (old: {
+              patches = (old.patches or []) ++ [
+                ./mu.patch
+              ];
+            });
+          }))
         ]));
   })
 
