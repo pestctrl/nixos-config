@@ -89,6 +89,7 @@
 
       packages."${system}" = {
         mps-debug = pkgs.mps-debug;
+        my-mu = pkgs.mu;
       };
 
       devShells."${system}" = rec {
