@@ -14,18 +14,22 @@ inputs: system:
   })
 
   (final: prev: {
+    mu = prev.mu.overrideAttrs (old: {
+      patches = (old.patches or []) ++ [
+        ./mu.patch
+      ];
+    });
+  })
+
+  (final: prev: {
     # final.emacs-git, final.emacs-unstable, or final.emacs-igc
     myEmacs =
       ((prev.emacsPackagesFor final.emacs-unstable)
         .emacsWithPackages (epkgs: with epkgs; [
           treesit-grammars.with-all-grammars
-          (mu4e.override (prev: {
-            mu = prev.mu.overrideAttrs (old: {
-              patches = (old.patches or []) ++ [
-                ./mu.patch
-              ];
-            });
-          }))
+          (mu4e.override {
+            mu = final.mu;
+          })
         ]));
   })
 
