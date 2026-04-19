@@ -3,6 +3,7 @@
   imports = [
     ../modules
     ../../submodules
+    ../common/offlineimap.nix
   ];
 
   nixpkgs.overlays = (lib.mkIf (!config.submoduleSupport.enable) [
@@ -143,11 +144,5 @@
 
   services = {
     kdeconnect.enable = true;
-    mbsync = {
-      enable = true;
-      frequency = "*:0/10";
-      verbose = true;
-      postExec = "${pkgs.mu}/bin/mu index";
-    };
   };
 }
