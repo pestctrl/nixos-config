@@ -95,12 +95,26 @@
       devShells."${system}" = rec {
         emacs-min = pkgs.mkShell {
           packages = with pkgs; [
-            emacs
+            myEmacs
             git
             libtool
             cmake gcc gnumake
-            roboto-mono ripgrep
+            ripgrep
+
+            fontconfig
+            commit-mono
+            roboto-mono
           ];
+
+          shellHook = ''
+            export FONTCONFIG_FILE="${
+                     pkgs.makeFontsConf {
+                       fontDirectories = with pkgs; [
+                         commit-mono
+                         roboto-mono
+                       ];
+                     }}"
+          '';
         };
 
         emacs-devel = pkgs.mkShell {
