@@ -31,6 +31,17 @@
 
     automatic-timezoned.enable = true;
     avahi.enable = true;
+
+    gnome.gnome-keyring.enable = true;
+  };
+
+  security = {
+    polkit.enable = true;
+
+    pam.services = {
+      login.enableGnomeKeyring = true;
+      sddm.enableGnomeKeyring = true;
+    };
   };
 
   networking.networkmanager.plugins = [pkgs.networkmanager-openvpn];
