@@ -19,6 +19,14 @@
       url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # drift = {
+    #   url = "github:phlx0/drift";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     flake-utils.follows = "flake-utils";
+    #   };
+    # };
   };
 
   outputs = { self, nixpkgs, update, unstable, home-manager, nixos-hardware, emacs-overlay, ... }@inputs:
@@ -166,6 +174,11 @@
           extraSpecialArgs = { inherit inputs; };
           modules = [
             ./home/users/work.nix
+            {
+              home.packages = [
+                (pkgs.callPackage ./packages/drift.nix {})
+              ];
+            }
           ];
         };
       };
