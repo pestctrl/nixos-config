@@ -17,7 +17,7 @@
 
   tmux cmatrix
 
-  roboto-mono commit-mono
+  roboto-mono commit-mono noto-fonts-color-emoji
 
   fastfetch
 
