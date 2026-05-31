@@ -11,7 +11,7 @@
   clang-tools
   mold
 
-  claude-code claude-code-acp
+  unstable.claude-code unstable.claude-agent-acp
 
   ripgrep git
 

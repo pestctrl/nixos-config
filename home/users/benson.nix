@@ -44,7 +44,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages =
-    import ../common/packages.nix { inherit pkgs; }
+    import ../common/packages.nix { inherit pkgs config; }
     ++ (with pkgs; [
       difftastic
       protonvpn-gui
