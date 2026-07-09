@@ -64,6 +64,8 @@
     ];
   };
 
+  hardware.steam-hardware.enable = true;
+
   environment.systemPackages = with pkgs; [
     update.firefox
     update.google-chrome
