@@ -5,7 +5,10 @@
     ./user-facing.nix
   ];
 
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth = {
+    enable = true; # enables support for Bluetooth
+    powerOnBoot = true;
+  };
 
   services = {
     logind = {
