@@ -37,7 +37,9 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = import ../common/packages.nix { inherit pkgs config; };
+  home.packages = (import ../common/packages.nix { inherit pkgs config; }) ++ [
+    pkgs.firefox
+  ];
 
   fonts.fontconfig.enable = true;
 
