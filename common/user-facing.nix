@@ -86,6 +86,7 @@
     parsec-bin
     unstable.discord
     unstable.telegram-desktop
+    unstable.slack
     dunst
     shutter
     # update.rustdesk
