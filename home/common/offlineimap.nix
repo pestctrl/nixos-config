@@ -3,16 +3,19 @@
 {
   home.packages = [ pkgs.offlineimap ];
 
+  systemd.user.startServices = "sd-switch";
+
   systemd.user.services.offlineimap = {
     Unit = {
       Description = "OfflineIMAP - mail synchronization";
       After = [ "network-online.target" ];
       Wants = [ "network-online.target" ];
+      X-RestartIfChanged = false;
     };
 
     Service = {
       Type = "oneshot";
-      ExecStart = "${pkgs.offlineimap}/bin/offlineimap -u quiet";
+      ExecStart = "${pkgs.offlineimap}/bin/offlineimap"; #  -u quiet
       # Restart on failure with a delay
       Restart = "on-failure";
       RestartSec = 30;
@@ -29,7 +32,7 @@
     };
 
     Install = {
-      WantedBy = [ "default.target" ];
+      WantedBy = lib.mkForce [ ];
     };
   };
 

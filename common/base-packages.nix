@@ -100,5 +100,8 @@
   # Not necessary
   apcupsd
 
+  difftastic
+  offlineimap
+
   vim
 ]
